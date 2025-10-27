@@ -97,31 +97,92 @@
         }
 
         .mobile-menu {
-            display: none;
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 280px;
+            height: 100vh;
+            background: white;
+            z-index: 100;
+            padding: 2rem;
+            transition: left 0.3s ease;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+            overflow-y: auto;
+        }
+
+        .mobile-menu.active {
+            left: 0;
+        }
+
+        .mobile-menu-overlay {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: white;
-            z-index: 100;
-            padding: 2rem;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 99;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
         }
 
-        .mobile-menu.active {
-            display: flex;
-            flex-direction: column;
+        .mobile-menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-menu-link {
+            display: block;
+            padding: 1rem 0;
+            color: var(--color-primary-dark);
+            font-size: 1.125rem;
+            font-weight: 500;
+            border-bottom: 1px solid #e5e7eb;
+            transition: all 0.2s ease;
+        }
+
+        .mobile-menu-link:hover {
+            color: var(--color-primary);
+            padding-left: 0.5rem;
         }
     </style>
 </head>
 <body class="bg-stone-50">
 
+<!-- Mobile Menu Overlay -->
+<div id="mobile-menu-overlay" class="mobile-menu-overlay"></div>
+
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="mobile-menu">
+    <div class="flex justify-between items-center mb-8">
+        <h2 class="text-2xl font-bold text-amber-900">Menu</h2>
+        <button id="close-menu-btn" class="text-amber-900 p-2">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </button>
+    </div>
+    <nav class="flex flex-col">
+        <a href="#home" class="mobile-menu-link">Home</a>
+        <a href="#producten" class="mobile-menu-link">Producten</a>
+        <a href="#bestellen" class="mobile-menu-link">Bestellen</a>
+    </nav>
+    <div class="mt-8 ">
+        <a href="tel:+34672548061" class="bg-green-600 text-white px-6 py-3 rounded-lg text-lg font-semibold flex items-center justify-center gap-2 hover:bg-green-700 transition-colors w-full">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+            </svg>
+            Bel Ons
+        </a>
+    </div>
+</div>
 <!-- Header -->
 <header id="header" class="header-sticky bg-white border-b-4 border-amber-700">
     <div class="container mx-auto px-4 py-4">
         <div class="flex items-center justify-between">
             <div class="flex items-center gap-4">
-                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-5rVsBCbHr09lJngQdbjshODdW9FY54.png" alt="Broodje Benidorm Logo" class="h-16 md:h-20">
+                <img src="logo.png" alt="Broodje Benidorm Logo" class="h-16 md:h-20">
                 <div>
                     <h1 class="text-2xl md:text-3xl font-bold text-amber-900">Broodje Benidorm</h1>
                     <p class="text-sm text-amber-700 hidden md:block">Authentiek Nederlands</p>
@@ -136,7 +197,7 @@
                     </svg>
                     Bestellen
                 </a>
-                <a href="tel:+34123456789" class="bg-green-600 text-white px-6 py-3 rounded-lg text-lg font-semibold flex items-center gap-2 hover:bg-green-700 transition-colors">
+                <a href="tel:+34672548061" class="bg-green-600 text-white px-6 py-3 rounded-lg text-lg font-semibold flex items-center gap-2 hover:bg-green-700 transition-colors">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
                     </svg>
@@ -144,23 +205,7 @@
                 </a>
             </nav>
 
-            <!-- Mobile Navigation -->
-            <div class="flex md:hidden gap-2 items-center">
-                <a href="#bestellen" class="btn-primary px-4 py-2 rounded-lg text-sm font-semibold flex items-center gap-1">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                    </svg>
-                    Bestellen
-                </a>
-                <a href="tel:+34123456789" class="bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-semibold flex items-center gap-1">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
-                    </svg>
-                    Bel
-                </a>
-            </div>
-
-            <!-- Mobile Menu Button -->
+            <!-- Mobile Hamburger Menu Button -->
             <button id="mobile-menu-btn" class="md:hidden p-2 text-amber-900">
                 <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
@@ -170,16 +215,21 @@
     </div>
 </header>
 
+
+
 <!-- Hero Section -->
 <section id="home" class="hero-section min-h-[600px] md:min-h-[700px] flex items-center">
     <div class="hero-overlay absolute inset-0"></div>
     <div class="container mx-auto px-4 relative z-10">
         <div class="max-w-3xl">
-            <h2 class="text-4xl md:text-6xl font-bold text-white mb-6 drop-shadow-lg">
-                Proef de Smaak van Thuis in Benidorm
+            <h2 class="text-5xl md:text-7xl font-black text-white mb-6" data-aos="fade-up">
+                <span class="block">Proef de Smaak</span>
+                <span class="block text-amber-300">van Thuis</span>
+                <span class="block">in Benidorm</span>
             </h2>
-            <p class="text-xl md:text-2xl text-white mb-8 drop-shadow-lg leading-relaxed">
-                Authentiek Nederlands brood, heerlijke stamppotten en seizoensproducten. Vers bereid, met liefde gemaakt.
+            <p class="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed" data-aos="fade-up" data-aos-delay="200">
+                Authentiek Nederlands brood, heerlijke stamppotten en seizoensproducten.
+                <span class="font-semibold text-amber-300">Vers bereid, met liefde gemaakt.</span>
             </p>
             <div class="flex flex-col sm:flex-row gap-4">
                 <a href="#bestellen" class="btn-primary px-8 py-5 rounded-lg text-xl font-semibold text-center shadow-lg">
@@ -703,8 +753,8 @@
                             </div>
                             <div>
                                 <h4 class="font-bold text-amber-900 text-lg mb-1">Adres</h4>
-                                <p class="text-amber-700">Calle Principal 123</p>
-                                <p class="text-amber-700">03500 Benidorm, Alicante</p>
+                                <p class="text-amber-700">Calle Derremador 5</p>
+                                <p class="text-amber-700">03503 Benidorm, Alicante</p>
                                 <p class="text-amber-700">Spanje</p>
                             </div>
                         </div>
@@ -731,15 +781,15 @@
                             <div>
                                 <h4 class="font-bold text-amber-900 text-lg mb-1">Contact</h4>
                                 <p class="text-amber-700">
-                                    <a href="tel:+34123456789" class="hover:text-amber-900">+34 123 456 789</a>
+                                    <a href="tel:+34672548061" class="hover:text-amber-900">+34 672 548 061</a>
                                 </p>
-                                <p class="text-amber-700">
-                                    <a href="mailto:info@broodjebenidorm.es" class="hover:text-amber-900">info@broodjebenidorm.es</a>
-                                </p>
+<!--                                <p class="text-amber-700">-->
+<!--                                    <a href="mailto:info@broodjebenidorm.nl" class="hover:text-amber-900">info@broodjebenidorm.nl</a>-->
+<!--                                </p>-->
                             </div>
                         </div>
 
-                        <a href="tel:+34123456789" class="block w-full bg-green-600 text-white py-4 rounded-lg text-center text-lg font-bold hover:bg-green-700 transition-colors">
+                        <a href="tel:+34672548061" class="block w-full bg-green-600 text-white py-4 rounded-lg text-center text-lg font-bold hover:bg-green-700 transition-colors">
                             <div class="flex items-center justify-center gap-2">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
@@ -753,7 +803,7 @@
                 <!-- Map -->
                 <div class="rounded-2xl overflow-hidden shadow-lg h-[500px] md:h-auto">
                     <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3131.1861893937544!2d-0.1333961!3d38.5363189!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzjCsDMyJzEwLjciTiAwwrAwNyc1OS4yIlc!5e0!3m2!1sen!2ses!4v1234567890"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d780.1907680359473!2d-0.11317328933515526!3d38.53922937452433!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd6204f7c5bbf8e1%3A0x2d96e3e73727cc95!2sLa%20Dulce%20Vida!5e0!3m2!1snl!2ses!4v1761576193251!5m2!1snl!2ses"
                             width="100%"
                             height="100%"
                             style="border:0;"
@@ -782,7 +832,7 @@
             <div class="bg-white rounded-xl shadow-lg overflow-hidden">
                 <div class="p-6">
                     <h3 class="text-xl font-bold text-amber-900 mb-3">📍 Waar is de Nederlandse bakkerij in Benidorm?</h3>
-                    <p class="text-base text-gray-600 leading-relaxed">Wij zijn gevestigd op Calle Principal 123, 03500 Benidorm, Alicante. Centraal gelegen met gratis parkeren in de buurt.</p>
+                    <p class="text-base text-gray-600 leading-relaxed">Wij zijn gevestigd op Calle Derremador 5, 03503 Benidorm, Alicante.</p>
                 </div>
             </div>
 
@@ -810,7 +860,7 @@
             <div class="bg-white rounded-xl shadow-lg overflow-hidden">
                 <div class="p-6">
                     <h3 class="text-xl font-bold text-amber-900 mb-3">🚗 Is er parkeren bij de bakkerij?</h3>
-                    <p class="text-base text-gray-600 leading-relaxed">Ja! Er is gratis parkeren beschikbaar in de directe omgeving van onze bakkerij in Benidorm.</p>
+                    <p class="text-base text-gray-600 leading-relaxed">Ja! Er is gratis parkeren beschikbaar in de directe omgeving van onze bakkerij in Benidorm, bij de rotonde op de hoek.</p>
                 </div>
             </div>
         </div>
@@ -829,6 +879,34 @@
 </footer>
 
 <script>
+
+    // Mobile menu functionality
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const closeMenuBtn = document.getElementById('close-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+    const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
+
+    function openMobileMenu() {
+        mobileMenu.classList.add('active');
+        mobileMenuOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeMobileMenu() {
+        mobileMenu.classList.remove('active');
+        mobileMenuOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    mobileMenuBtn.addEventListener('click', openMobileMenu);
+    closeMenuBtn.addEventListener('click', closeMobileMenu);
+    mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+
+    // Close menu when clicking on a link
+    mobileMenuLinks.forEach(link => {
+        link.addEventListener('click', closeMobileMenu);
+    });
     // Product quantities storage
     const quantities = {};
 
