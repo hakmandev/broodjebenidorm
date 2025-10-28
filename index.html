@@ -12,6 +12,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
@@ -26,8 +27,19 @@
             font-family: 'Inter', sans-serif;
         }
 
-        h1, h2, h3, h4, h5, h6 {
+        h3, h4, h5, h6 {
             font-family: 'Playfair Display', serif;
+        }
+
+
+        h1, h2 {
+            font-family: 'Great Vibes', serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .header-yellow {
+            letter-spacing: 5px;
         }
 
         .header-sticky {
@@ -72,11 +84,37 @@
 
         .tab-button {
             transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
         }
 
         .tab-button.active {
             background-color: var(--color-primary);
             color: white;
+            border-bottom-color: var(--color-warm);
+        }
+
+        .tab-button:hover:not(.active) {
+            background-color: var(--color-cream);
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .quantity-btn {
@@ -146,6 +184,35 @@
             color: var(--color-primary);
             padding-left: 0.5rem;
         }
+
+        .stamppotten-banner {
+            background: linear-gradient(135deg, #8B6F47 0%, #6B4423 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stamppotten-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/boerenkool-stamppot-dutch-kale-mashed-potato-zZsK7dwGlqwnK4tB6vBI9IFkv0K5CT.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.15;
+        }
+
+        .stamppotten-card {
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .stamppotten-card:hover {
+            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 1);
+        }
     </style>
 </head>
 <body class="bg-stone-50">
@@ -168,7 +235,7 @@
         <a href="#producten" class="mobile-menu-link">Producten</a>
         <a href="#bestellen" class="mobile-menu-link">Bestellen</a>
     </nav>
-    <div class="mt-8 ">
+    <div class="mt-8">
         <a href="tel:+34672548061" class="bg-green-600 text-white px-6 py-3 rounded-lg text-lg font-semibold flex items-center justify-center gap-2 hover:bg-green-700 transition-colors w-full">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
@@ -177,6 +244,7 @@
         </a>
     </div>
 </div>
+
 <!-- Header -->
 <header id="header" class="header-sticky bg-white border-b-4 border-amber-700">
     <div class="container mx-auto px-4 py-4">
@@ -215,19 +283,20 @@
     </div>
 </header>
 
-
-
 <!-- Hero Section -->
 <section id="home" class="hero-section min-h-[600px] md:min-h-[700px] flex items-center">
     <div class="hero-overlay absolute inset-0"></div>
     <div class="container mx-auto px-4 relative z-10">
         <div class="max-w-3xl">
-            <h2 class="text-5xl md:text-7xl font-black text-white mb-6" data-aos="fade-up">
-                <span class="block">Proef de Smaak</span>
-                <span class="block text-amber-300">van Thuis</span>
+            <h2 class="text-5xl md:text-7xl font-black text-white mb-6">
+                <div class="block lg:mb-5 sm:mb-3">
+                    <span class="">Proef de Smaak</span>
+                    <span class="header-yellow text-amber-300 lg:ml-5">van</span>
+                    <span class="header-yellow text-amber-300">Thuis</span>
+                </div>
                 <span class="block">in Benidorm</span>
             </h2>
-            <p class="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed" data-aos="fade-up" data-aos-delay="200">
+            <p class="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed">
                 Authentiek Nederlands brood, heerlijke stamppotten en seizoensproducten.
                 <span class="font-semibold text-amber-300">Vers bereid, met liefde gemaakt.</span>
             </p>
@@ -243,617 +312,692 @@
     </div>
 </section>
 
-<!-- Products Section -->
+<!-- Products Section with Tabs -->
 <section id="producten" class="py-16 md:py-24 bg-white">
     <div class="container mx-auto px-4">
         <h2 class="text-4xl md:text-5xl font-bold text-amber-900 text-center mb-4">Ons Assortiment</h2>
         <p class="text-xl text-amber-700 text-center mb-12 max-w-2xl mx-auto leading-relaxed">
-            Van vers brood tot authentieke stamppotten - alles wat u mist van Nederland
+            Dagelijks vers gebakken volgens authentieke Nederlandse recepten
         </p>
 
-        <!-- Category Tabs -->
-        <div class="flex flex-wrap justify-center gap-4 mb-12">
-            <button class="tab-button active px-8 py-4 rounded-lg text-lg font-semibold border-2 border-amber-900" data-category="brood">
-                Brood
+        <!-- Tab Navigation -->
+        <div class="flex flex-wrap justify-center gap-2 md:gap-4 mb-12">
+            <button class="tab-button active px-6 md:px-8 py-3 md:py-4 rounded-lg font-bold text-base md:text-lg" data-tab="brood">
+                🍞 Brood & Bollen
             </button>
-            <button class="tab-button px-8 py-4 rounded-lg text-lg font-semibold border-2 border-amber-900" data-category="stamppotten">
-                Stamppotten
+            <button class="tab-button px-6 md:px-8 py-3 md:py-4 rounded-lg font-bold text-base md:text-lg" data-tab="gebak">
+                🥐 Gebak & Koek
             </button>
-            <button class="tab-button px-8 py-4 rounded-lg text-lg font-semibold border-2 border-amber-900" data-category="seizoen">
-                Seizoensproducten
+            <button class="tab-button px-6 md:px-8 py-3 md:py-4 rounded-lg font-bold text-base md:text-lg" data-tab="hartig">
+                🌭 Hartige Broodjes
+            </button>
+            <button class="tab-button px-6 md:px-8 py-3 md:py-4 rounded-lg font-bold text-base md:text-lg" data-tab="seizoen">
+                🎄 Seizoensproducten
             </button>
         </div>
 
-        <!-- Brood Products -->
-        <div id="brood-products" class="product-category grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg">
-                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/white-bread-loaf-CfcsvA9JubzGnmtdPm6DHHNFiFv0RI.png" alt="Wit Brood" class="w-full h-64 object-cover">
-                <div class="p-6">
-                    <h3 class="text-2xl font-bold text-amber-900 mb-2">Wit Brood</h3>
-                    <p class="text-lg text-amber-700 leading-relaxed">Klassiek Nederlands wit brood, zacht en luchtig</p>
+        <!-- Tab Content: Brood & Bollen -->
+        <div id="brood-content" class="tab-content active">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                <!-- Groot Brood -->
+                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/tiger-bread-dutch-FcwWMVvQARVrVOeiK6zKCws35HfbIQ.jpg" alt="Tijgerbrood Wit" class="w-full h-48 md:h-64 object-cover">
+                    <div class="p-4 md:p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Tijgerbrood Wit</h3>
+                            <span class="text-lg md:text-xl font-bold text-amber-700">€3,60</span>
+                        </div>
+                        <p class="text-base md:text-lg text-amber-700">Knapperige korst en zachte binnenkant</p>
+                    </div>
                 </div>
-            </div>
 
-            <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg">
-                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/whole-wheat-bread-JXTriKES3nwJNgYbHVcxdhGsjcGd70.png" alt="Volkoren Brood" class="w-full h-64 object-cover">
-                <div class="p-6">
-                    <h3 class="text-2xl font-bold text-amber-900 mb-2">Volkoren Brood</h3>
-                    <p class="text-lg text-amber-700 leading-relaxed">Gezond en voedzaam volkorenbrood</p>
+                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/multigrain-bread-BkS9aF92cYIH9BsfkzaicxGeyRhGRk.jpg" alt="Meergranenbrood Donker" class="w-full h-48 md:h-64 object-cover">
+                    <div class="p-4 md:p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Meergranenbrood Donker</h3>
+                            <span class="text-lg md:text-xl font-bold text-amber-700">€3,90</span>
+                        </div>
+                        <p class="text-base md:text-lg text-amber-700">Vol met gezonde granen en zaden</p>
+                    </div>
                 </div>
-            </div>
 
-            <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg">
-                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/multigrain-bread-BkS9aF92cYIH9BsfkzaicxGeyRhGRk.jpg" alt="Meergranen Brood" class="w-full h-64 object-cover">
-                <div class="p-6">
-                    <h3 class="text-2xl font-bold text-amber-900 mb-2">Meergranen Brood</h3>
-                    <p class="text-lg text-amber-700 leading-relaxed">Vol met gezonde granen en zaden</p>
+                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/whole-wheat-bread-JXTriKES3nwJNgYbHVcxdhGsjcGd70.png" alt="Klooster Brood" class="w-full h-48 md:h-64 object-cover">
+                    <div class="p-4 md:p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Klooster Brood</h3>
+                            <span class="text-lg md:text-xl font-bold text-amber-700">€3,90</span>
+                        </div>
+                        <p class="text-base md:text-lg text-amber-700">Traditioneel kloosterbrood</p>
+                    </div>
                 </div>
-            </div>
 
-            <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg">
-                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/tiger-bread-dutch-FcwWMVvQARVrVOeiK6zKCws35HfbIQ.jpg" alt="Tijgerbrood" class="w-full h-64 object-cover">
-                <div class="p-6">
-                    <h3 class="text-2xl font-bold text-amber-900 mb-2">Tijgerbrood</h3>
-                    <p class="text-lg text-amber-700 leading-relaxed">Met knapperige korst en zachte binnenkant</p>
+                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/whole-wheat-bread-JXTriKES3nwJNgYbHVcxdhGsjcGd70.png" alt="Volkoren Alison" class="w-full h-48 md:h-64 object-cover">
+                    <div class="p-4 md:p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Volkoren Alison</h3>
+                            <span class="text-lg md:text-xl font-bold text-amber-700">€3,60</span>
+                        </div>
+                        <p class="text-base md:text-lg text-amber-700">Gezond en voedzaam volkorenbrood</p>
+                    </div>
                 </div>
-            </div>
 
-            <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg">
-                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/casino-bread-rolls-6B4ZsTrlf6Y4hSq2aUP0jcpzIYO4p7.jpg" alt="Casino Broodjes" class="w-full h-64 object-cover">
-                <div class="p-6">
-                    <h3 class="text-2xl font-bold text-amber-900 mb-2">Casino Broodjes</h3>
-                    <p class="text-lg text-amber-700 leading-relaxed">Perfecte broodjes voor bij de lunch</p>
+                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/tiger-bread-dutch-FcwWMVvQARVrVOeiK6zKCws35HfbIQ.jpg" alt="Volkoren Tijger" class="w-full h-48 md:h-64 object-cover">
+                    <div class="p-4 md:p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Volkoren Tijger</h3>
+                            <span class="text-lg md:text-xl font-bold text-amber-700">€3,60</span>
+                        </div>
+                        <p class="text-base md:text-lg text-amber-700">Volkoren tijgerbrood met knapperige korst</p>
+                    </div>
                 </div>
-            </div>
 
-            <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg">
-                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/currant-bun-dutch-HqCBL7BNUXjJBena4Hi3lSa2IalLzm.jpg" alt="Krentenbol" class="w-full h-64 object-cover">
-                <div class="p-6">
-                    <h3 class="text-2xl font-bold text-amber-900 mb-2">Krentenbol</h3>
-                    <p class="text-lg text-amber-700 leading-relaxed">Zoete bol vol met krenten</p>
+                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/multigrain-bread-BkS9aF92cYIH9BsfkzaicxGeyRhGRk.jpg" alt="Haags Donker Brood" class="w-full h-48 md:h-64 object-cover">
+                    <div class="p-4 md:p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Haags Donker Brood</h3>
+                            <span class="text-lg md:text-xl font-bold text-amber-700">€3,90</span>
+                        </div>
+                        <p class="text-base md:text-lg text-amber-700">Traditioneel Haags donker brood</p>
+                    </div>
+                </div>
+
+                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/white-bread-loaf-CfcsvA9JubzGnmtdPm6DHHNFiFv0RI.png" alt="Melk Wit Brood" class="w-full h-48 md:h-64 object-cover">
+                    <div class="p-4 md:p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Melk Wit Brood</h3>
+                            <span class="text-lg md:text-xl font-bold text-amber-700">€3,60</span>
+                        </div>
+                        <p class="text-base md:text-lg text-amber-700">Zacht en luchtig melkbrood</p>
+                    </div>
+                </div>
+
+                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/currant-bun-dutch-HqCBL7BNUXjJBena4Hi3lSa2IalLzm.jpg" alt="Half Krentenbrood" class="w-full h-48 md:h-64 object-cover">
+                    <div class="p-4 md:p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Half Krentenbrood</h3>
+                            <span class="text-lg md:text-xl font-bold text-amber-700">€3,00</span>
+                        </div>
+                        <p class="text-base md:text-lg text-amber-700">Half brood met krenten</p>
+                    </div>
+                </div>
+
+                <!-- Kleinbrood / Bollen -->
+                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/casino-bread-rolls-6B4ZsTrlf6Y4hSq2aUP0jcpzIYO4p7.jpg" alt="Puntjes Wit" class="w-full h-48 md:h-64 object-cover">
+                    <div class="p-4 md:p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Puntjes Wit</h3>
+                            <span class="text-lg md:text-xl font-bold text-amber-700">€0,60</span>
+                        </div>
+                        <p class="text-base md:text-lg text-amber-700">Vers wit puntje</p>
+                    </div>
+                </div>
+
+                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/casino-bread-rolls-6B4ZsTrlf6Y4hSq2aUP0jcpzIYO4p7.jpg" alt="Sesambollen" class="w-full h-48 md:h-64 object-cover">
+                    <div class="p-4 md:p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Sesambollen</h3>
+                            <span class="text-lg md:text-xl font-bold text-amber-700">€0,60</span>
+                        </div>
+                        <p class="text-base md:text-lg text-amber-700">Met sesamzaad</p>
+                    </div>
+                </div>
+
+                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/tiger-bread-dutch-FcwWMVvQARVrVOeiK6zKCws35HfbIQ.jpg" alt="Tijgerbol" class="w-full h-48 md:h-64 object-cover">
+                    <div class="p-4 md:p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Tijgerbol</h3>
+                            <span class="text-lg md:text-xl font-bold text-amber-700">€0,60</span>
+                        </div>
+                        <p class="text-base md:text-lg text-amber-700">Knapperig tijgerbol</p>
+                    </div>
+                </div>
+
+                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/currant-bun-dutch-HqCBL7BNUXjJBena4Hi3lSa2IalLzm.jpg" alt="Krentenbollen" class="w-full h-48 md:h-64 object-cover">
+                    <div class="p-4 md:p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Krentenbollen</h3>
+                            <span class="text-lg md:text-xl font-bold text-amber-700">€3,00</span>
+                        </div>
+                        <p class="text-base md:text-lg text-amber-700">4 stuks voor €3,00</p>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- Stamppotten Products -->
-        <div id="stamppotten-products" class="product-category hidden grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg">
-                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/boerenkool-stamppot-dutch-kale-mashed-potato-zZsK7dwGlqwnK4tB6vBI9IFkv0K5CT.jpg" alt="Boerenkool Stamppot" class="w-full h-64 object-cover">
-                <div class="p-6">
-                    <h3 class="text-2xl font-bold text-amber-900 mb-2">Boerenkool Stamppot</h3>
-                    <p class="text-lg text-amber-700 leading-relaxed">Klassieke boerenkool met rookworst</p>
+        <!-- Tab Content: Gebak & Koek -->
+        <div id="gebak-content" class="tab-content">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/dutch-kerststol-christmas-bread-almond-paste-cIbdghLnEsC5TqX5gG5Vzf0GhAj1xt.jpg" alt="Appelflap" class="w-full h-48 md:h-64 object-cover">
+                    <div class="p-4 md:p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Appelflap</h3>
+                            <span class="text-lg md:text-xl font-bold text-amber-700">€2,50</span>
+                        </div>
+                        <p class="text-base md:text-lg text-amber-700">Bladerdeeg met appel</p>
+                    </div>
                 </div>
-            </div>
 
-            <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg">
-                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/hutspot-dutch-carrot-onion-mashed-potato-Tqe11u1CjpWaOS9SMNUdyXc132mP5w.jpg" alt="Hutspot" class="w-full h-64 object-cover">
-                <div class="p-6">
-                    <h3 class="text-2xl font-bold text-amber-900 mb-2">Hutspot</h3>
-                    <p class="text-lg text-amber-700 leading-relaxed">Met wortel, ui en gehaktbal</p>
+                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/dutch-kerststol-christmas-bread-almond-paste-cIbdghLnEsC5TqX5gG5Vzf0GhAj1xt.jpg" alt="Kersenflap" class="w-full h-48 md:h-64 object-cover">
+                    <div class="p-4 md:p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Kersenflap</h3>
+                            <span class="text-lg md:text-xl font-bold text-amber-700">€2,50</span>
+                        </div>
+                        <p class="text-base md:text-lg text-amber-700">Bladerdeeg met kersen</p>
+                    </div>
                 </div>
-            </div>
 
-            <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg">
-                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/zuurkool-stamppot-sauerkraut-mashed-potato-v78BoAGlX7yywch5tJwIriFddEMZvb.jpg" alt="Zuurkool Stamppot" class="w-full h-64 object-cover">
-                <div class="p-6">
-                    <h3 class="text-2xl font-bold text-amber-900 mb-2">Zuurkool Stamppot</h3>
-                    <p class="text-lg text-amber-700 leading-relaxed">Zuurkool met spekjes en worst</p>
+                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/casino-bread-rolls-6B4ZsTrlf6Y4hSq2aUP0jcpzIYO4p7.jpg" alt="Roombroodje" class="w-full h-48 md:h-64 object-cover">
+                    <div class="p-4 md:p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Roombroodje</h3>
+                            <span class="text-lg md:text-xl font-bold text-amber-700">€2,50</span>
+                        </div>
+                        <p class="text-base md:text-lg text-amber-700">Gevuld met banketbakkersroom</p>
+                    </div>
                 </div>
-            </div>
 
-            <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg">
-                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/andijvie-stamppot-endive-mashed-potato-dutch-6hzYiuB7Ff589lPZlSABwoMYej6NEg.jpg" alt="Andijvie Stamppot" class="w-full h-64 object-cover">
-                <div class="p-6">
-                    <h3 class="text-2xl font-bold text-amber-900 mb-2">Andijvie Stamppot</h3>
-                    <p class="text-lg text-amber-700 leading-relaxed">Verse andijvie met rookworst</p>
+                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/casino-bread-rolls-6B4ZsTrlf6Y4hSq2aUP0jcpzIYO4p7.jpg" alt="Amandel Broodje" class="w-full h-48 md:h-64 object-cover">
+                    <div class="p-4 md:p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Amandel Broodje</h3>
+                            <span class="text-lg md:text-xl font-bold text-amber-700">€2,50</span>
+                        </div>
+                        <p class="text-base md:text-lg text-amber-700">Met amandelspijs</p>
+                    </div>
+                </div>
+
+                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/dutch-kerststol-christmas-bread-almond-paste-cIbdghLnEsC5TqX5gG5Vzf0GhAj1xt.jpg" alt="Gevulde Koek" class="w-full h-48 md:h-64 object-cover">
+                    <div class="p-4 md:p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Gevulde Koek</h3>
+                            <span class="text-lg md:text-xl font-bold text-amber-700">€2,50</span>
+                        </div>
+                        <p class="text-base md:text-lg text-amber-700">Traditionele gevulde koek</p>
+                    </div>
+                </div>
+
+                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/dutch-kerststol-christmas-bread-almond-paste-cIbdghLnEsC5TqX5gG5Vzf0GhAj1xt.jpg" alt="Boter Koek" class="w-full h-48 md:h-64 object-cover">
+                    <div class="p-4 md:p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Boter Koek</h3>
+                            <span class="text-lg md:text-xl font-bold text-amber-700">€2,50</span>
+                        </div>
+                        <p class="text-base md:text-lg text-amber-700">Heerlijke boterkoek</p>
+                    </div>
+                </div>
+
+                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/dutch-kerststol-christmas-bread-almond-paste-cIbdghLnEsC5TqX5gG5Vzf0GhAj1xt.jpg" alt="Eierkoek" class="w-full h-48 md:h-64 object-cover">
+                    <div class="p-4 md:p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Eierkoek</h3>
+                            <span class="text-lg md:text-xl font-bold text-amber-700">€3,00</span>
+                        </div>
+                        <p class="text-base md:text-lg text-amber-700">3 stuks voor €3,00</p>
+                    </div>
+                </div>
+
+                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/casino-bread-rolls-6B4ZsTrlf6Y4hSq2aUP0jcpzIYO4p7.jpg" alt="Bosse Bollen" class="w-full h-48 md:h-64 object-cover">
+                    <div class="p-4 md:p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Bosse Bollen</h3>
+                            <span class="text-lg md:text-xl font-bold text-amber-700">€3,50</span>
+                        </div>
+                        <p class="text-base md:text-lg text-amber-700">Soes met slagroom en chocolade</p>
+                    </div>
+                </div>
+
+                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/dutch-kerststol-christmas-bread-almond-paste-cIbdghLnEsC5TqX5gG5Vzf0GhAj1xt.jpg" alt="Hazelino" class="w-full h-48 md:h-64 object-cover">
+                    <div class="p-4 md:p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Hazelino</h3>
+                            <span class="text-lg md:text-xl font-bold text-amber-700">€3,50</span>
+                        </div>
+                        <p class="text-base md:text-lg text-amber-700">Hazelnootschuim gebakje</p>
+                    </div>
+                </div>
+
+                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/dutch-paasbrood-easter-bread-JkzFhCdaJqwPe8ANzQbBQLL4OteJeZ.jpg" alt="Appeltaart" class="w-full h-48 md:h-64 object-cover">
+                    <div class="p-4 md:p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Appeltaart</h3>
+                            <span class="text-lg md:text-xl font-bold text-amber-700">€3,50</span>
+                        </div>
+                        <p class="text-base md:text-lg text-amber-700">Per punt</p>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- Seizoen Products -->
-        <div id="seizoen-products" class="product-category hidden grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg">
-                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/dutch-kerststol-christmas-bread-almond-paste-cIbdghLnEsC5TqX5gG5Vzf0GhAj1xt.jpg" alt="Kerststol" class="w-full h-64 object-cover">
-                <div class="p-6">
-                    <h3 class="text-2xl font-bold text-amber-900 mb-2">Kerststol</h3>
-                    <p class="text-lg text-amber-700 leading-relaxed">Traditionele kerststol met amandelspijs (December)</p>
+        <!-- Tab Content: Hartige Broodjes -->
+        <div id="hartig-content" class="tab-content">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/casino-bread-rolls-6B4ZsTrlf6Y4hSq2aUP0jcpzIYO4p7.jpg" alt="Worstenbroodjes" class="w-full h-48 md:h-64 object-cover">
+                    <div class="p-4 md:p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Worstenbroodjes</h3>
+                            <span class="text-lg md:text-xl font-bold text-amber-700">€2,50</span>
+                        </div>
+                        <p class="text-base md:text-lg text-amber-700">Met worst</p>
+                    </div>
+                </div>
+
+                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/casino-bread-rolls-6B4ZsTrlf6Y4hSq2aUP0jcpzIYO4p7.jpg" alt="Sauzijzenbroodje" class="w-full h-48 md:h-64 object-cover">
+                    <div class="p-4 md:p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Sauzijzenbroodje</h3>
+                            <span class="text-lg md:text-xl font-bold text-amber-700">€2,50</span>
+                        </div>
+                        <p class="text-base md:text-lg text-amber-700">Met saucijs</p>
+                    </div>
+                </div>
+
+                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/casino-bread-rolls-6B4ZsTrlf6Y4hSq2aUP0jcpzIYO4p7.jpg" alt="Frikandelbroodje" class="w-full h-48 md:h-64 object-cover">
+                    <div class="p-4 md:p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Frikandelbroodje</h3>
+                            <span class="text-lg md:text-xl font-bold text-amber-700">€2,50</span>
+                        </div>
+                        <p class="text-base md:text-lg text-amber-700">Met frikandel</p>
+                    </div>
+                </div>
+
+                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/casino-bread-rolls-6B4ZsTrlf6Y4hSq2aUP0jcpzIYO4p7.jpg" alt="Kaasbroodje" class="w-full h-48 md:h-64 object-cover">
+                    <div class="p-4 md:p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Kaasbroodje</h3>
+                            <span class="text-lg md:text-xl font-bold text-amber-700">€2,50</span>
+                        </div>
+                        <p class="text-base md:text-lg text-amber-700">Met kaas</p>
+                    </div>
                 </div>
             </div>
+        </div>
 
-            <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg">
-                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/oliebollen-dutch-donuts-new-year-kZqwUfC6vvZ5uv2rvASlA7QAvDLIrb.jpg" alt="Oliebollen" class="w-full h-64 object-cover">
-                <div class="p-6">
-                    <h3 class="text-2xl font-bold text-amber-900 mb-2">Oliebollen</h3>
-                    <p class="text-lg text-amber-700 leading-relaxed">Vers gebakken oliebollen (December/Januari)</p>
+        <!-- Tab Content: Seizoensproducten -->
+        <div id="seizoen-content" class="tab-content">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/dutch-kerststol-christmas-bread-almond-paste-cIbdghLnEsC5TqX5gG5Vzf0GhAj1xt.jpg" alt="Kerststol" class="w-full h-48 md:h-64 object-cover">
+                    <div class="p-4 md:p-6">
+                        <h3 class="text-xl md:text-2xl font-bold text-amber-900 mb-2">Kerststol</h3>
+                        <p class="text-base md:text-lg text-amber-700">Traditionele kerststol (December)</p>
+                    </div>
                 </div>
-            </div>
 
-            <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg">
-                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/dutch-paasbrood-easter-bread-JkzFhCdaJqwPe8ANzQbBQLL4OteJeZ.jpg" alt="Paasbrood" class="w-full h-64 object-cover">
-                <div class="p-6">
-                    <h3 class="text-2xl font-bold text-amber-900 mb-2">Paasbrood</h3>
-                    <p class="text-lg text-amber-700 leading-relaxed">Zoet paasbrood met krenten (Maart/April)</p>
+                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/oliebollen-dutch-donuts-new-year-kZqwUfC6vvZ5uv2rvASlA7QAvDLIrb.jpg" alt="Oliebollen" class="w-full h-48 md:h-64 object-cover">
+                    <div class="p-4 md:p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Oliebollen</h3>
+                            <span class="text-lg md:text-xl font-bold text-amber-700">€1,00</span>
+                        </div>
+                        <p class="text-base md:text-lg text-amber-700">Per stuk of 11 voor €10,00</p>
+                    </div>
+                </div>
+
+                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/oliebollen-dutch-donuts-new-year-kZqwUfC6vvZ5uv2rvASlA7QAvDLIrb.jpg" alt="Appelbeignets" class="w-full h-48 md:h-64 object-cover">
+                    <div class="p-4 md:p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Appelbeignets</h3>
+                            <span class="text-lg md:text-xl font-bold text-amber-700">€2,75</span>
+                        </div>
+                        <p class="text-base md:text-lg text-amber-700">Per stuk</p>
+                    </div>
+                </div>
+
+                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/oliebollen-dutch-donuts-new-year-kZqwUfC6vvZ5uv2rvASlA7QAvDLIrb.jpg" alt="Luxe Bollen" class="w-full h-48 md:h-64 object-cover">
+                    <div class="p-4 md:p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Luxe Bollen</h3>
+                            <span class="text-lg md:text-xl font-bold text-amber-700">€3,00</span>
+                        </div>
+                        <p class="text-base md:text-lg text-amber-700">Per stuk</p>
+                    </div>
+                </div>
+
+                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/dutch-kerststol-christmas-bread-almond-paste-cIbdghLnEsC5TqX5gG5Vzf0GhAj1xt.jpg" alt="Amandel Staaf" class="w-full h-48 md:h-64 object-cover">
+                    <div class="p-4 md:p-6">
+                        <h3 class="text-xl md:text-2xl font-bold text-amber-900 mb-2">Amandel Staaf</h3>
+                        <p class="text-base md:text-lg text-amber-700">Met amandelspijs</p>
+                    </div>
+                </div>
+
+                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/dutch-kerststol-christmas-bread-almond-paste-cIbdghLnEsC5TqX5gG5Vzf0GhAj1xt.jpg" alt="Boterkoek Seizoen" class="w-full h-48 md:h-64 object-cover">
+                    <div class="p-4 md:p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Boterkoek</h3>
+                            <span class="text-lg md:text-xl font-bold text-amber-700">€4,50</span>
+                        </div>
+                        <p class="text-base md:text-lg text-amber-700">Per 100g</p>
+                    </div>
+                </div>
+
+                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/dutch-kerststol-christmas-bread-almond-paste-cIbdghLnEsC5TqX5gG5Vzf0GhAj1xt.jpg" alt="Gevulde Speculaas" class="w-full h-48 md:h-64 object-cover">
+                    <div class="p-4 md:p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Gevulde Speculaas</h3>
+                            <span class="text-lg md:text-xl font-bold text-amber-700">€4,50</span>
+                        </div>
+                        <p class="text-base md:text-lg text-amber-700">Per 100g</p>
+                    </div>
+                </div>
+
+                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/oliebollen-dutch-donuts-new-year-kZqwUfC6vvZ5uv2rvASlA7QAvDLIrb.jpg" alt="Mini Stimpjes" class="w-full h-48 md:h-64 object-cover">
+                    <div class="p-4 md:p-6">
+                        <h3 class="text-xl md:text-2xl font-bold text-amber-900 mb-2">Mini Stimpjes</h3>
+                        <p class="text-base md:text-lg text-amber-700">Seizoensgebonden</p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- About Section -->
-<section id="over-ons" class="py-20 md:py-32 bg-gradient-to-b from-stone-50 to-white relative overflow-hidden">
-    <!-- Background Pattern -->
-    <div class="absolute inset-0 opacity-5">
-        <div class="absolute top-0 left-0 w-64 h-64 bg-amber-700 rounded-full filter blur-3xl"></div>
-        <div class="absolute bottom-0 right-0 w-96 h-96 bg-amber-500 rounded-full filter blur-3xl"></div>
-    </div>
-
+<!-- Stamppotten Section (blijft apart met eigen design) -->
+<section class="stamppotten-banner py-16 md:py-20 relative">
     <div class="container mx-auto px-4 relative z-10">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div data-aos="fade-right">
-                <span class="text-amber-700 font-semibold text-lg">Over Ons</span>
-                <h2 class="text-5xl md:text-6xl font-black text-amber-900 mt-2 mb-6">
-                    Een Stukje Nederland in Spanje
-                </h2>
-                <p class="text-xl text-amber-700 mb-6 leading-relaxed">
-                    Sinds 2015 brengen wij de authentieke smaken van Nederland naar Benidorm.
-                    Met passie en vakmanschap bereiden we dagelijks vers brood en traditionele gerechten.
-                </p>
-                <p class="text-lg text-amber-600 mb-8 leading-relaxed">
-                    Onze bakkerij is uitgegroeid tot een geliefde ontmoetingsplek voor Nederlanders
-                    die heimwee hebben naar de vertrouwde smaken van thuis.
-                </p>
+        <div class="text-center mb-8">
+            <div class="inline-block bg-white/20 backdrop-blur-sm text-white px-6 py-2 rounded-full font-semibold text-sm mb-4 border-2 border-white/30">
+                ✨ Ook Verkrijgbaar
+            </div>
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Authentieke Nederlandse Stamppotten</h2>
+            <p class="text-xl text-white/90 max-w-2xl mx-auto leading-relaxed">
+                Naast ons brood bieden wij ook traditionele Nederlandse stamppotten aan
+            </p>
+        </div>
 
-                <!-- Features -->
-                <div class="grid grid-cols-2 gap-6">
-                    <div class="flex items-start gap-4">
-                        <div class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0">
-                            <span class="text-2xl">🌾</span>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-amber-900">Vers Gebakken</h4>
-                            <p class="text-sm text-amber-700">Elke dag vers uit eigen oven</p>
-                        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            <div class="stamppotten-card rounded-xl overflow-hidden shadow-lg">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/boerenkool-stamppot-dutch-kale-mashed-potato-zZsK7dwGlqwnK4tB6vBI9IFkv0K5CT.jpg" alt="Boerenkool Stamppot" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold text-amber-900 mb-2">🥬 Boerenkool</h3>
+                    <p class="text-amber-700 text-lg mb-3">Met rookworst en jus</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-amber-700">Klein portie</span>
+                        <span class="text-xl font-bold text-amber-900">€5,50</span>
                     </div>
-                    <div class="flex items-start gap-4">
-                        <div class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0">
-                            <span class="text-2xl">🏆</span>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-amber-900">Top Kwaliteit</h4>
-                            <p class="text-sm text-amber-700">Alleen de beste ingrediënten</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start gap-4">
-                        <div class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0">
-                            <span class="text-2xl">❤️</span>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-amber-900">Met Liefde</h4>
-                            <p class="text-sm text-amber-700">Bereid zoals thuis</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start gap-4">
-                        <div class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0">
-                            <span class="text-2xl">🌟</span>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-amber-900">10+ Jaar</h4>
-                            <p class="text-sm text-amber-700">Ervaring en expertise</p>
-                        </div>
+                    <div class="flex justify-between items-center mt-2">
+                        <span class="text-sm text-amber-700">Groot portie</span>
+                        <span class="text-xl font-bold text-amber-900">€8,50</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Image Gallery -->
-            <div class="relative" data-aos="fade-left">
-                <div class="grid grid-cols-2 gap-4">
-                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/bakery-interior-display-case-DwtizfsHpJIFaH1tHStjPSvaUj9fJQ.jpg"
-                         alt="Bakkerij"
-                         class="rounded-2xl shadow-2xl transform hover:scale-105 transition-transform duration-500">
-                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/bakery-interior-display-case-DwtizfsHpJIFaH1tHStjPSvaUj9fJQ.jpg"
-                         alt="Producten"
-                         class="rounded-2xl shadow-2xl transform hover:scale-105 transition-transform duration-500 mt-8">
+            <div class="stamppotten-card rounded-xl overflow-hidden shadow-lg">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/boerenkool-stamppot-dutch-kale-mashed-potato-zZsK7dwGlqwnK4tB6vBI9IFkv0K5CT.jpg" alt="Andijvie Stamppot" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold text-amber-900 mb-2">🥗 Andijvie</h3>
+                    <p class="text-amber-700 text-lg mb-3">Met rookworst en jus</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-amber-700">Klein portie</span>
+                        <span class="text-xl font-bold text-amber-900">€5,50</span>
+                    </div>
+                    <div class="flex justify-between items-center mt-2">
+                        <span class="text-sm text-amber-700">Groot portie</span>
+                        <span class="text-xl font-bold text-amber-900">€8,50</span>
+                    </div>
                 </div>
+            </div>
 
-                <!-- Floating Badge -->
-                <div class="absolute -bottom-8 -left-8 bg-amber-700 text-white p-6 rounded-2xl shadow-2xl">
-                    <div class="text-4xl font-bold">10+</div>
-                    <div class="text-sm">Jaar Ervaring</div>
+            <div class="stamppotten-card rounded-xl overflow-hidden shadow-lg">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/boerenkool-stamppot-dutch-kale-mashed-potato-zZsK7dwGlqwnK4tB6vBI9IFkv0K5CT.jpg" alt="Hutspot" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold text-amber-900 mb-2">🥕 Hutspot</h3>
+                    <p class="text-amber-700 text-lg mb-3">Met rookworst en jus</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-amber-700">Klein portie</span>
+                        <span class="text-xl font-bold text-amber-900">€5,50</span>
+                    </div>
+                    <div class="flex justify-between items-center mt-2">
+                        <span class="text-sm text-amber-700">Groot portie</span>
+                        <span class="text-xl font-bold text-amber-900">€8,50</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-6 flex justify-center">
+            <div class="stamppotten-card rounded-xl overflow-hidden shadow-lg max-w-md">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/boerenkool-stamppot-dutch-kale-mashed-potato-zZsK7dwGlqwnK4tB6vBI9IFkv0K5CT.jpg" alt="Zuurkool" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold text-amber-900 mb-2">🥬 Zuurkool</h3>
+                    <p class="text-amber-700 text-lg mb-3">Met rookworst en jus</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-amber-700">Groot portie</span>
+                        <span class="text-xl font-bold text-amber-900">€9,00</span>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Order Section -->
-<section id="bestellen" class="py-16 md:py-24 bg-white">
-    <div class="container mx-auto px-4">
-        <h2 class="text-4xl md:text-5xl font-bold text-amber-900 text-center mb-4">Bestel Nu</h2>
-        <p class="text-xl text-amber-700 text-center mb-12 max-w-2xl mx-auto leading-relaxed">
-            Vul onderstaand formulier in en haal uw bestelling op het afgesproken moment op
+<!-- Order Form Section -->
+<section id="bestellen" class="py-16 md:py-24 bg-stone-50">
+    <div class="container mx-auto px-4 max-w-3xl">
+        <h2 class="text-4xl md:text-5xl font-bold text-amber-900 text-center mb-4">Bestellen</h2>
+        <p class="text-xl text-amber-700 text-center mb-12">
+            Vul het formulier in en wij nemen zo snel mogelijk contact met u op
         </p>
 
-        <div class="max-w-4xl mx-auto bg-stone-50 rounded-2xl shadow-xl p-8 md:p-12">
-            <form id="order-form">
-                <!-- Product Type Tabs -->
-                <div class="mb-8">
-                    <label class="block text-xl font-semibold text-amber-900 mb-4">Wat wilt u bestellen?</label>
-                    <div class="flex gap-4">
-                        <button type="button" class="order-tab-button active flex-1 px-6 py-4 rounded-lg text-lg font-semibold border-2 border-amber-900" data-type="brood">
-                            Brood
-                        </button>
-                        <button type="button" class="order-tab-button flex-1 px-6 py-4 rounded-lg text-lg font-semibold border-2 border-amber-900" data-type="stamppot">
-                            Stamppot
-                        </button>
+        <!-- Success Message -->
+        <div id="success-message" class="hidden bg-green-100 border-2 border-green-500 text-green-800 px-6 py-4 rounded-lg mb-8 text-center">
+            <p class="text-xl font-bold mb-2">✓ Bestelling Ontvangen!</p>
+            <p>Bedankt voor uw bestelling. Wij nemen zo snel mogelijk contact met u op.</p>
+        </div>
+
+        <form id="order-form" class="bg-white rounded-xl shadow-lg p-6 md:p-8">
+            <!-- Contact Information -->
+            <div class="mb-8">
+                <h3 class="text-2xl font-bold text-amber-900 mb-4">Contactgegevens</h3>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-amber-900 font-semibold mb-2">Naam *</label>
+                        <input type="text" name="name" required class="w-full px-4 py-3 border-2 border-stone-300 rounded-lg focus:border-amber-700">
+                    </div>
+                    <div>
+                        <label class="block text-amber-900 font-semibold mb-2">Telefoonnummer *</label>
+                        <input type="tel" name="phone" required class="w-full px-4 py-3 border-2 border-stone-300 rounded-lg focus:border-amber-700">
+                    </div>
+                    <div>
+                        <label class="block text-amber-900 font-semibold mb-2">E-mail *</label>
+                        <input type="email" name="email" required class="w-full px-4 py-3 border-2 border-stone-300 rounded-lg focus:border-amber-700">
                     </div>
                 </div>
+            </div>
 
-                <!-- Brood Selection -->
-                <div id="brood-selection" class="order-type-content mb-8">
-                    <label class="block text-xl font-semibold text-amber-900 mb-4">Selecteer uw brood</label>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div class="product-selector bg-white rounded-lg p-4 border-2 border-stone-300">
-                            <div class="flex items-center gap-4 mb-3">
-                                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/white-bread-loaf-CfcsvA9JubzGnmtdPm6DHHNFiFv0RI.png" alt="Wit Brood" class="w-20 h-20 object-cover rounded">
-                                <div class="flex-1">
-                                    <h4 class="text-lg font-semibold text-amber-900">Wit Brood</h4>
-                                    <p class="text-amber-700 font-medium">€3.50</p>
-                                </div>
-                            </div>
-                            <div class="flex items-center justify-between">
-                                <span class="text-lg text-amber-700">Aantal:</span>
-                                <div class="flex items-center gap-3">
-                                    <button type="button" class="quantity-btn bg-amber-900 text-white w-10 h-10 rounded-lg text-xl font-bold" data-product="wit-brood" data-action="decrease">-</button>
-                                    <span class="quantity-display text-xl font-semibold w-12 text-center" data-product="wit-brood">0</span>
-                                    <button type="button" class="quantity-btn bg-amber-900 text-white w-10 h-10 rounded-lg text-xl font-bold" data-product="wit-brood" data-action="increase">+</button>
-                                </div>
+            <!-- Pickup Date -->
+            <div class="mb-8">
+                <h3 class="text-2xl font-bold text-amber-900 mb-4">Afhaaldatum</h3>
+                <input type="date" id="pickup-date" name="pickup-date" required class="w-full px-4 py-3 border-2 border-stone-300 rounded-lg focus:border-amber-700">
+                <p class="text-sm text-amber-700 mt-2">Let op: Wij zijn in het weekend gesloten</p>
+            </div>
+
+            <!-- Order Type Tabs -->
+            <div class="mb-8">
+                <h3 class="text-2xl font-bold text-amber-900 mb-4">Wat wilt u bestellen?</h3>
+                <div class="flex gap-4 mb-6">
+                    <button type="button" class="order-tab-button tab-button active flex-1 px-6 py-3 rounded-lg font-bold" data-type="bakery">
+                        🍞 Bakkerij
+                    </button>
+                    <button type="button" class="order-tab-button tab-button flex-1 px-6 py-3 rounded-lg font-bold" data-type="stamppot">
+                        🥔 Stamppot
+                    </button>
+                </div>
+
+                <!-- Bakery Products -->
+                <div id="bakery-selection" class="order-type-content">
+                    <p class="text-amber-700 mb-4">Gebruik de knoppen om uw gewenste hoeveelheden aan te geven:</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <!-- Brood Products -->
+                        <div class="flex justify-between items-center p-3 bg-stone-50 rounded-lg">
+                            <span class="font-semibold text-amber-900">Tijgerbrood Wit</span>
+                            <div class="flex items-center gap-2">
+                                <button type="button" class="quantity-btn bg-amber-700 text-white w-8 h-8 rounded-full font-bold" data-product="Tijgerbrood Wit" data-action="decrease">-</button>
+                                <span class="quantity-display w-8 text-center font-bold" data-product="Tijgerbrood Wit">0</span>
+                                <button type="button" class="quantity-btn bg-amber-700 text-white w-8 h-8 rounded-full font-bold" data-product="Tijgerbrood Wit" data-action="increase">+</button>
                             </div>
                         </div>
 
-                        <div class="product-selector bg-white rounded-lg p-4 border-2 border-stone-300">
-                            <div class="flex items-center gap-4 mb-3">
-                                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/whole-wheat-bread-JXTriKES3nwJNgYbHVcxdhGsjcGd70.png" alt="Volkoren Brood" class="w-20 h-20 object-cover rounded">
-                                <div class="flex-1">
-                                    <h4 class="text-lg font-semibold text-amber-900">Volkoren Brood</h4>
-                                    <p class="text-amber-700 font-medium">€4.00</p>
-                                </div>
-                            </div>
-                            <div class="flex items-center justify-between">
-                                <span class="text-lg text-amber-700">Aantal:</span>
-                                <div class="flex items-center gap-3">
-                                    <button type="button" class="quantity-btn bg-amber-900 text-white w-10 h-10 rounded-lg text-xl font-bold" data-product="volkoren-brood" data-action="decrease">-</button>
-                                    <span class="quantity-display text-xl font-semibold w-12 text-center" data-product="volkoren-brood">0</span>
-                                    <button type="button" class="quantity-btn bg-amber-900 text-white w-10 h-10 rounded-lg text-xl font-bold" data-product="volkoren-brood" data-action="increase">+</button>
-                                </div>
+                        <div class="flex justify-between items-center p-3 bg-stone-50 rounded-lg">
+                            <span class="font-semibold text-amber-900">Meergranenbrood</span>
+                            <div class="flex items-center gap-2">
+                                <button type="button" class="quantity-btn bg-amber-700 text-white w-8 h-8 rounded-full font-bold" data-product="Meergranenbrood Donker" data-action="decrease">-</button>
+                                <span class="quantity-display w-8 text-center font-bold" data-product="Meergranenbrood Donker">0</span>
+                                <button type="button" class="quantity-btn bg-amber-700 text-white w-8 h-8 rounded-full font-bold" data-product="Meergranenbrood Donker" data-action="increase">+</button>
                             </div>
                         </div>
 
-                        <div class="product-selector bg-white rounded-lg p-4 border-2 border-stone-300">
-                            <div class="flex items-center gap-4 mb-3">
-                                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/tiger-bread-dutch-FcwWMVvQARVrVOeiK6zKCws35HfbIQ.jpg" alt="Tijgerbrood" class="w-20 h-20 object-cover rounded">
-                                <div class="flex-1">
-                                    <h4 class="text-lg font-semibold text-amber-900">Tijgerbrood</h4>
-                                    <p class="text-amber-700 font-medium">€4.50</p>
-                                </div>
-                            </div>
-                            <div class="flex items-center justify-between">
-                                <span class="text-lg text-amber-700">Aantal:</span>
-                                <div class="flex items-center gap-3">
-                                    <button type="button" class="quantity-btn bg-amber-900 text-white w-10 h-10 rounded-lg text-xl font-bold" data-product="tijgerbrood" data-action="decrease">-</button>
-                                    <span class="quantity-display text-xl font-semibold w-12 text-center" data-product="tijgerbrood">0</span>
-                                    <button type="button" class="quantity-btn bg-amber-900 text-white w-10 h-10 rounded-lg text-xl font-bold" data-product="tijgerbrood" data-action="increase">+</button>
-                                </div>
+                        <div class="flex justify-between items-center p-3 bg-stone-50 rounded-lg">
+                            <span class="font-semibold text-amber-900">Klooster Brood</span>
+                            <div class="flex items-center gap-2">
+                                <button type="button" class="quantity-btn bg-amber-700 text-white w-8 h-8 rounded-full font-bold" data-product="Klooster Brood" data-action="decrease">-</button>
+                                <span class="quantity-display w-8 text-center font-bold" data-product="Klooster Brood">0</span>
+                                <button type="button" class="quantity-btn bg-amber-700 text-white w-8 h-8 rounded-full font-bold" data-product="Klooster Brood" data-action="increase">+</button>
                             </div>
                         </div>
 
-                        <div class="product-selector bg-white rounded-lg p-4 border-2 border-stone-300">
-                            <div class="flex items-center gap-4 mb-3">
-                                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/casino-bread-rolls-6B4ZsTrlf6Y4hSq2aUP0jcpzIYO4p7.jpg" alt="Casino Broodjes" class="w-20 h-20 object-cover rounded">
-                                <div class="flex-1">
-                                    <h4 class="text-lg font-semibold text-amber-900">Casino Broodjes</h4>
-                                    <p class="text-amber-700 font-medium">€2.50</p>
-                                </div>
+                        <div class="flex justify-between items-center p-3 bg-stone-50 rounded-lg">
+                            <span class="font-semibold text-amber-900">Volkoren Alison</span>
+                            <div class="flex items-center gap-2">
+                                <button type="button" class="quantity-btn bg-amber-700 text-white w-8 h-8 rounded-full font-bold" data-product="Volkoren Alison" data-action="decrease">-</button>
+                                <span class="quantity-display w-8 text-center font-bold" data-product="Volkoren Alison">0</span>
+                                <button type="button" class="quantity-btn bg-amber-700 text-white w-8 h-8 rounded-full font-bold" data-product="Volkoren Alison" data-action="increase">+</button>
                             </div>
-                            <div class="flex items-center justify-between">
-                                <span class="text-lg text-amber-700">Aantal:</span>
-                                <div class="flex items-center gap-3">
-                                    <button type="button" class="quantity-btn bg-amber-900 text-white w-10 h-10 rounded-lg text-xl font-bold" data-product="casino-broodjes" data-action="decrease">-</button>
-                                    <span class="quantity-display text-xl font-semibold w-12 text-center" data-product="casino-broodjes">0</span>
-                                    <button type="button" class="quantity-btn bg-amber-900 text-white w-10 h-10 rounded-lg text-xl font-bold" data-product="casino-broodjes" data-action="increase">+</button>
-                                </div>
-                            </div>
+                        </div>
+
+                        <!-- More products can be added here -->
+                        <div class="col-span-1 md:col-span-2">
+                            <textarea name="additional-products" rows="3" placeholder="Andere producten? Typ hier..." class="w-full px-4 py-3 border-2 border-stone-300 rounded-lg focus:border-amber-700"></textarea>
                         </div>
                     </div>
                 </div>
 
                 <!-- Stamppot Selection -->
-                <div id="stamppot-selection" class="order-type-content hidden mb-8">
-                    <label class="block text-xl font-semibold text-amber-900 mb-4">Selecteer uw stamppot</label>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div class="product-selector bg-white rounded-lg p-4 border-2 border-stone-300">
-                            <div class="flex items-center gap-4 mb-3">
-                                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/boerenkool-stamppot-dutch-kale-mashed-potato-zZsK7dwGlqwnK4tB6vBI9IFkv0K5CT.jpg" alt="Boerenkool" class="w-20 h-20 object-cover rounded">
-                                <div class="flex-1">
-                                    <h4 class="text-lg font-semibold text-amber-900">Boerenkool</h4>
-                                    <p class="text-amber-700 font-medium">€8.50</p>
-                                </div>
+                <div id="stamppot-selection" class="order-type-content hidden">
+                    <p class="text-amber-700 mb-4">Gebruik de knoppen om uw gewenste hoeveelheden aan te geven:</p>
+                    <div class="grid grid-cols-1 gap-4">
+                        <div class="flex justify-between items-center p-3 bg-stone-50 rounded-lg">
+                            <div>
+                                <span class="font-semibold text-amber-900 block">Boerenkool</span>
+                                <span class="text-sm text-amber-700">Klein (€5,50) / Groot (€8,50)</span>
                             </div>
-                            <div class="flex items-center justify-between">
-                                <span class="text-lg text-amber-700">Aantal:</span>
-                                <div class="flex items-center gap-3">
-                                    <button type="button" class="quantity-btn bg-amber-900 text-white w-10 h-10 rounded-lg text-xl font-bold" data-product="boerenkool" data-action="decrease">-</button>
-                                    <span class="quantity-display text-xl font-semibold w-12 text-center" data-product="boerenkool">0</span>
-                                    <button type="button" class="quantity-btn bg-amber-900 text-white w-10 h-10 rounded-lg text-xl font-bold" data-product="boerenkool" data-action="increase">+</button>
-                                </div>
+                            <div class="flex items-center gap-2">
+                                <button type="button" class="quantity-btn bg-amber-700 text-white w-8 h-8 rounded-full font-bold" data-product="Boerenkool" data-action="decrease">-</button>
+                                <span class="quantity-display w-8 text-center font-bold" data-product="Boerenkool">0</span>
+                                <button type="button" class="quantity-btn bg-amber-700 text-white w-8 h-8 rounded-full font-bold" data-product="Boerenkool" data-action="increase">+</button>
                             </div>
                         </div>
 
-                        <div class="product-selector bg-white rounded-lg p-4 border-2 border-stone-300">
-                            <div class="flex items-center gap-4 mb-3">
-                                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/hutspot-dutch-carrot-onion-mashed-potato-Tqe11u1CjpWaOS9SMNUdyXc132mP5w.jpg" alt="Hutspot" class="w-20 h-20 object-cover rounded">
-                                <div class="flex-1">
-                                    <h4 class="text-lg font-semibold text-amber-900">Hutspot</h4>
-                                    <p class="text-amber-700 font-medium">€8.50</p>
-                                </div>
+                        <div class="flex justify-between items-center p-3 bg-stone-50 rounded-lg">
+                            <div>
+                                <span class="font-semibold text-amber-900 block">Andijvie</span>
+                                <span class="text-sm text-amber-700">Klein (€5,50) / Groot (€8,50)</span>
                             </div>
-                            <div class="flex items-center justify-between">
-                                <span class="text-lg text-amber-700">Aantal:</span>
-                                <div class="flex items-center gap-3">
-                                    <button type="button" class="quantity-btn bg-amber-900 text-white w-10 h-10 rounded-lg text-xl font-bold" data-product="hutspot" data-action="decrease">-</button>
-                                    <span class="quantity-display text-xl font-semibold w-12 text-center" data-product="hutspot">0</span>
-                                    <button type="button" class="quantity-btn bg-amber-900 text-white w-10 h-10 rounded-lg text-xl font-bold" data-product="hutspot" data-action="increase">+</button>
-                                </div>
+                            <div class="flex items-center gap-2">
+                                <button type="button" class="quantity-btn bg-amber-700 text-white w-8 h-8 rounded-full font-bold" data-product="Andijvie" data-action="decrease">-</button>
+                                <span class="quantity-display w-8 text-center font-bold" data-product="Andijvie">0</span>
+                                <button type="button" class="quantity-btn bg-amber-700 text-white w-8 h-8 rounded-full font-bold" data-product="Andijvie" data-action="increase">+</button>
                             </div>
                         </div>
 
-                        <div class="product-selector bg-white rounded-lg p-4 border-2 border-stone-300">
-                            <div class="flex items-center gap-4 mb-3">
-                                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/zuurkool-stamppot-sauerkraut-mashed-potato-v78BoAGlX7yywch5tJwIriFddEMZvb.jpg" alt="Zuurkool" class="w-20 h-20 object-cover rounded">
-                                <div class="flex-1">
-                                    <h4 class="text-lg font-semibold text-amber-900">Zuurkool</h4>
-                                    <p class="text-amber-700 font-medium">€9.00</p>
-                                </div>
+                        <div class="flex justify-between items-center p-3 bg-stone-50 rounded-lg">
+                            <div>
+                                <span class="font-semibold text-amber-900 block">Hutspot</span>
+                                <span class="text-sm text-amber-700">Klein (€5,50) / Groot (€8,50)</span>
                             </div>
-                            <div class="flex items-center justify-between">
-                                <span class="text-lg text-amber-700">Aantal:</span>
-                                <div class="flex items-center gap-3">
-                                    <button type="button" class="quantity-btn bg-amber-900 text-white w-10 h-10 rounded-lg text-xl font-bold" data-product="zuurkool" data-action="decrease">-</button>
-                                    <span class="quantity-display text-xl font-semibold w-12 text-center" data-product="zuurkool">0</span>
-                                    <button type="button" class="quantity-btn bg-amber-900 text-white w-10 h-10 rounded-lg text-xl font-bold" data-product="zuurkool" data-action="increase">+</button>
-                                </div>
+                            <div class="flex items-center gap-2">
+                                <button type="button" class="quantity-btn bg-amber-700 text-white w-8 h-8 rounded-full font-bold" data-product="Hutspot" data-action="decrease">-</button>
+                                <span class="quantity-display w-8 text-center font-bold" data-product="Hutspot">0</span>
+                                <button type="button" class="quantity-btn bg-amber-700 text-white w-8 h-8 rounded-full font-bold" data-product="Hutspot" data-action="increase">+</button>
                             </div>
                         </div>
 
-                        <div class="product-selector bg-white rounded-lg p-4 border-2 border-stone-300">
-                            <div class="flex items-center gap-4 mb-3">
-                                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/andijvie-stamppot-endive-mashed-potato-dutch-6hzYiuB7Ff589lPZlSABwoMYej6NEg.jpg" alt="Andijvie" class="w-20 h-20 object-cover rounded">
-                                <div class="flex-1">
-                                    <h4 class="text-lg font-semibold text-amber-900">Andijvie</h4>
-                                </div>
+                        <div class="flex justify-between items-center p-3 bg-stone-50 rounded-lg">
+                            <div>
+                                <span class="font-semibold text-amber-900 block">Zuurkool</span>
+                                <span class="text-sm text-amber-700">Groot (€9,00)</span>
                             </div>
-                            <div class="flex items-center justify-between">
-                                <span class="text-lg text-amber-700">Aantal:</span>
-                                <div class="flex items-center gap-3">
-                                    <button type="button" class="quantity-btn bg-amber-900 text-white w-10 h-10 rounded-lg text-xl font-bold" data-product="andijvie" data-action="decrease">-</button>
-                                    <span class="quantity-display text-xl font-semibold w-12 text-center" data-product="andijvie">0</span>
-                                    <button type="button" class="quantity-btn bg-amber-900 text-white w-10 h-10 rounded-lg text-xl font-bold" data-product="andijvie" data-action="increase">+</button>
-                                </div>
+                            <div class="flex items-center gap-2">
+                                <button type="button" class="quantity-btn bg-amber-700 text-white w-8 h-8 rounded-full font-bold" data-product="Zuurkool" data-action="decrease">-</button>
+                                <span class="quantity-display w-8 text-center font-bold" data-product="Zuurkool">0</span>
+                                <button type="button" class="quantity-btn bg-amber-700 text-white w-8 h-8 rounded-full font-bold" data-product="Zuurkool" data-action="increase">+</button>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <!-- Pickup Date -->
-                <div class="mb-8">
-                    <label for="pickup-date" class="block text-xl font-semibold text-amber-900 mb-4">
-                        Wanneer wilt u het ophalen?
-                    </label>
-                    <input
-                            type="date"
-                            id="pickup-date"
-                            name="pickup-date"
-                            required
-                            class="w-full px-6 py-4 text-lg border-2 border-stone-300 rounded-lg focus:border-amber-900"
-                    >
-                </div>
-
-                <!-- Contact Information -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                    <div>
-                        <label for="name" class="block text-xl font-semibold text-amber-900 mb-4">Naam *</label>
-                        <input
-                                type="text"
-                                id="name"
-                                name="name"
-                                required
-                                class="w-full px-6 py-4 text-lg border-2 border-stone-300 rounded-lg focus:border-amber-900"
-                                placeholder="Uw naam"
-                        >
-                    </div>
-                    <div>
-                        <label for="phone" class="block text-xl font-semibold text-amber-900 mb-4">Telefoonnummer *</label>
-                        <input
-                                type="tel"
-                                id="phone"
-                                name="phone"
-                                required
-                                class="w-full px-6 py-4 text-lg border-2 border-stone-300 rounded-lg focus:border-amber-900"
-                                placeholder="+34 123 456 789"
-                        >
-                    </div>
-                </div>
-
-                <div class="mb-8">
-                    <label for="email" class="block text-xl font-semibold text-amber-900 mb-4">E-mail</label>
-                    <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            class="w-full px-6 py-4 text-lg border-2 border-stone-300 rounded-lg focus:border-amber-900"
-                            placeholder="uw.email@voorbeeld.nl"
-                    >
-                </div>
-
-                <!-- Additional Notes -->
-                <div class="mb-8">
-                    <label for="notes" class="block text-xl font-semibold text-amber-900 mb-4">Opmerkingen</label>
-                    <textarea
-                            id="notes"
-                            name="notes"
-                            rows="4"
-                            class="w-full px-6 py-4 text-lg border-2 border-stone-300 rounded-lg focus:border-amber-900"
-                            placeholder="Heeft u nog speciale wensen of opmerkingen?"
-                    ></textarea>
-                </div>
-
-                <!-- Submit Button -->
-                <button
-                        type="submit"
-                        class="btn-primary w-full px-8 py-6 rounded-lg text-2xl font-bold shadow-lg"
-                >
-                    Verstuur Bestelling
-                </button>
-            </form>
-
-            <!-- Success Message -->
-            <div id="success-message" class="hidden mt-8 p-6 bg-green-100 border-2 border-green-500 rounded-lg">
-                <p class="text-xl text-green-800 font-semibold text-center">
-                    ✓ Bestelling ontvangen! U kunt uw bestelling ophalen op het afgesproken moment.
-                </p>
             </div>
-        </div>
+
+            <!-- Additional Notes -->
+            <div class="mb-8">
+                <label class="block text-amber-900 font-semibold mb-2">Opmerkingen</label>
+                <textarea name="notes" rows="4" placeholder="Speciale wensen of opmerkingen..." class="w-full px-4 py-3 border-2 border-stone-300 rounded-lg focus:border-amber-700"></textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn-primary w-full px-8 py-4 rounded-lg text-xl font-bold">
+                Bestelling Plaatsen
+            </button>
+        </form>
     </div>
 </section>
 
-
-
-<!-- Location & Map Section -->
-<section id="locatie" class="py-16 md:py-24 bg-white">
-    <div class="container mx-auto px-4">
-        <div class="text-center mb-12">
-            <h2 class="text-4xl md:text-5xl font-bold text-amber-900 mb-4">Kom Langs</h2>
-            <p class="text-xl text-amber-700 max-w-2xl mx-auto leading-relaxed">
-                Bezoek onze bakkerij in Benidorm en ervaar de authentieke smaak van Nederland
-            </p>
-        </div>
-
-        <div class="max-w-6xl mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Contact Info -->
-                <div class="bg-stone-50 rounded-2xl p-8 shadow-lg">
-                    <h3 class="text-2xl font-bold text-amber-900 mb-6">Bezoek Ons</h3>
-
-                    <div class="space-y-6">
-                        <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0">
-                                <svg class="w-6 h-6 text-amber-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                </svg>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-amber-900 text-lg mb-1">Adres</h4>
-                                <p class="text-amber-700">Calle Derremador 5</p>
-                                <p class="text-amber-700">03503 Benidorm, Alicante</p>
-                                <p class="text-amber-700">Spanje</p>
-                            </div>
-                        </div>
-
-                        <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0">
-                                <svg class="w-6 h-6 text-amber-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                </svg>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-amber-900 text-lg mb-1">Openingstijden</h4>
-                                <p class="text-amber-700">Ma - Vr: 09:00 - 14:00</p>
-                                <p class="text-amber-700">Weekend: Gesloten</p>
-                            </div>
-                        </div>
-
-                        <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0">
-                                <svg class="w-6 h-6 text-amber-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
-                                </svg>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-amber-900 text-lg mb-1">Contact</h4>
-                                <p class="text-amber-700">
-                                    <a href="tel:+34672548061" class="hover:text-amber-900">+34 672 548 061</a>
-                                </p>
-<!--                                <p class="text-amber-700">-->
-<!--                                    <a href="mailto:info@broodjebenidorm.nl" class="hover:text-amber-900">info@broodjebenidorm.nl</a>-->
-<!--                                </p>-->
-                            </div>
-                        </div>
-
-                        <a href="tel:+34672548061" class="block w-full bg-green-600 text-white py-4 rounded-lg text-center text-lg font-bold hover:bg-green-700 transition-colors">
-                            <div class="flex items-center justify-center gap-2">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
-                                </svg>
-                                Direct Bellen
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Map -->
-                <div class="rounded-2xl overflow-hidden shadow-lg h-[500px] md:h-auto">
-                    <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d780.1907680359473!2d-0.11317328933515526!3d38.53922937452433!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd6204f7c5bbf8e1%3A0x2d96e3e73727cc95!2sLa%20Dulce%20Vida!5e0!3m2!1snl!2ses!4v1761576193251!5m2!1snl!2ses"
-                            width="100%"
-                            height="100%"
-                            style="border:0;"
-                            allowfullscreen=""
-                            loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"
-                            class="w-full h-full min-h-[500px]"
-                    ></iframe>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- FAQ Section for SEO -->
-<section class="py-16 md:py-24 bg-stone-100">
+<!-- FAQ Section -->
+<section class="py-16 md:py-24 bg-white">
     <div class="container mx-auto px-4 max-w-4xl">
-        <div class="text-center mb-12">
-            <div class="inline-block bg-amber-100 text-amber-900 px-6 py-2 rounded-full font-semibold text-sm mb-4 border-2 border-amber-200">
-                ❓ Veelgestelde Vragen
-            </div>
-            <h2 class="text-4xl md:text-5xl font-bold mb-4 text-amber-900">Alles Over Onze Bakkerij</h2>
-        </div>
+        <h2 class="text-4xl md:text-5xl font-bold text-amber-900 text-center mb-12">Veelgestelde Vragen</h2>
 
-        <div class="flex flex-col gap-6">
+        <div class="space-y-6">
             <div class="bg-white rounded-xl shadow-lg overflow-hidden">
                 <div class="p-6">
-                    <h3 class="text-xl font-bold text-amber-900 mb-3">📍 Waar is de Nederlandse bakkerij in Benidorm?</h3>
-                    <p class="text-base text-gray-600 leading-relaxed">Wij zijn gevestigd op Calle Derremador 5, 03503 Benidorm, Alicante.</p>
+                    <h3 class="text-xl font-bold text-amber-900 mb-3">📍 Waar zijn jullie gevestigd?</h3>
+                    <p class="text-base text-gray-600 leading-relaxed">Wij bevinden ons in Benidorm, bij de rotonde op de hoek. Kom gerust langs voor verse Nederlandse producten!</p>
                 </div>
             </div>
 
             <div class="bg-white rounded-xl shadow-lg overflow-hidden">
                 <div class="p-6">
-                    <h3 class="text-xl font-bold text-amber-900 mb-3">⏰ Hoe laat is het brood vers?</h3>
-                    <p class="text-base text-gray-600 leading-relaxed">Ons brood is dagelijks vers om 9:00 uur 's ochtends. We zijn geopend van maandag tot vrijdag van 09:00 tot 14:00 uur. In het weekend zijn we gesloten.</p>
+                    <h3 class="text-xl font-bold text-amber-900 mb-3">🕐 Wat zijn de openingstijden?</h3>
+                    <p class="text-base text-gray-600 leading-relaxed">Wij zijn geopend van maandag t/m vrijdag. In het weekend zijn wij gesloten.</p>
                 </div>
             </div>
 
             <div class="bg-white rounded-xl shadow-lg overflow-hidden">
                 <div class="p-6">
-                    <h3 class="text-xl font-bold text-amber-900 mb-3">🥖 Welk Nederlands brood hebben jullie?</h3>
-                    <p class="text-base text-gray-600 leading-relaxed">Wij hebben tijgerbrood, wit brood, volkoren, meergranen, krentenbrood, roggebrood en casino brood. Allemaal volgens authentieke Nederlandse recepten.</p>
-                </div>
-            </div>
-
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
-                <div class="p-6">
-                    <h3 class="text-xl font-bold text-amber-900 mb-3">📞 Moet ik vooraf bestellen?</h3>
-                    <p class="text-base text-gray-600 leading-relaxed">Voor grotere bestellingen raden we aan om vooraf te bestellen via ons formulier of telefonisch. Zo kunnen we garanderen dat uw favoriete broden klaarliggen!</p>
+                    <h3 class="text-xl font-bold text-amber-900 mb-3">📞 Kan ik vooraf bestellen?</h3>
+                    <p class="text-base text-gray-600 leading-relaxed">Ja! Via ons bestelformulier of telefonisch op +34 672 548 061 kunt u eenvoudig vooraf bestellen.</p>
                 </div>
             </div>
 
@@ -867,19 +1011,17 @@
     </div>
 </section>
 
-
 <!-- Footer -->
 <footer class="bg-amber-900 text-white py-12">
     <div class="container mx-auto px-4">
-
         <div class="border-t border-amber-700 pt-8 text-center">
             <p class="text-lg">&copy; 2025 Broodje Benidorm. Alle rechten voorbehouden.</p>
         </div>
     </div>
 </footer>
 
+<!-- JavaScript -->
 <script>
-
     // Mobile menu functionality
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const closeMenuBtn = document.getElementById('close-menu-btn');
@@ -903,10 +1045,28 @@
     closeMenuBtn.addEventListener('click', closeMobileMenu);
     mobileMenuOverlay.addEventListener('click', closeMobileMenu);
 
-    // Close menu when clicking on a link
     mobileMenuLinks.forEach(link => {
         link.addEventListener('click', closeMobileMenu);
     });
+
+    // Tab functionality for products
+    const tabButtons = document.querySelectorAll('.tab-button:not(.order-tab-button)');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const tabName = button.dataset.tab;
+
+            // Remove active class from all buttons and contents
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            tabContents.forEach(content => content.classList.remove('active'));
+
+            // Add active class to clicked button and corresponding content
+            button.classList.add('active');
+            document.getElementById(`${tabName}-content`).classList.add('active');
+        });
+    });
+
     // Product quantities storage
     const quantities = {};
 
@@ -924,36 +1084,10 @@
         const selectedDate = new Date(this.value);
         const dayOfWeek = selectedDate.getDay();
 
-        // If Saturday (6) or Sunday (0) is selected, clear the input
         if (dayOfWeek === 0 || dayOfWeek === 6) {
             alert('Wij zijn in het weekend gesloten. Selecteer alstublieft een dag van maandag tot vrijdag.');
             this.value = '';
         }
-    });
-
-    // Category tabs functionality
-    const categoryTabs = document.querySelectorAll('.tab-button');
-    const productCategories = document.querySelectorAll('.product-category');
-
-    categoryTabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-            const category = tab.dataset.category;
-
-            // Update active tab
-            categoryTabs.forEach(t => t.classList.remove('active'));
-            tab.classList.add('active');
-
-            // Show corresponding products
-            productCategories.forEach(cat => {
-                if (cat.id === `${category}-products`) {
-                    cat.classList.remove('hidden');
-                    cat.classList.add('grid');
-                } else {
-                    cat.classList.add('hidden');
-                    cat.classList.remove('grid');
-                }
-            });
-        });
     });
 
     // Order form tabs functionality
@@ -987,19 +1121,16 @@
             const product = button.dataset.product;
             const action = button.dataset.action;
 
-            // Initialize quantity if not exists
             if (!quantities[product]) {
                 quantities[product] = 0;
             }
 
-            // Update quantity
             if (action === 'increase') {
                 quantities[product]++;
             } else if (action === 'decrease' && quantities[product] > 0) {
                 quantities[product]--;
             }
 
-            // Update display
             const display = document.querySelector(`.quantity-display[data-product="${product}"]`);
             display.textContent = quantities[product];
         });
@@ -1012,37 +1143,33 @@
     orderForm.addEventListener('submit', async (e) => {
         e.preventDefault();
 
-        // Get form data
         const formData = new FormData(orderForm);
         const name = formData.get('name');
         const phone = formData.get('phone');
         const email = formData.get('email');
         const pickupDate = formData.get('pickup-date');
         const notes = formData.get('notes');
+        const additionalProducts = formData.get('additional-products');
 
-        // Get selected products
         const selectedProducts = Object.entries(quantities)
             .filter(([_, qty]) => qty > 0)
             .map(([product, qty]) => `${product}: ${qty}`)
             .join(', ');
 
-        // Validate that at least one product is selected
-        if (!selectedProducts) {
+        if (!selectedProducts && !additionalProducts) {
             alert('Selecteer alstublieft minimaal één product');
             return;
         }
 
-        // Prepare JSON data for API
         const orderData = {
             name: name,
             email: email,
             phone: phone,
-            message: `Bestelling: ${selectedProducts}\nAfhaaldatum: ${pickupDate}\nOpmerkingen: ${notes || 'Geen opmerkingen'}`,
+            message: `Bestelling: ${selectedProducts}${additionalProducts ? '\nExtra producten: ' + additionalProducts : ''}\nAfhaaldatum: ${pickupDate}\nOpmerkingen: ${notes || 'Geen opmerkingen'}`,
             _form_ts: Math.floor(Date.now() / 1000)
         };
 
         try {
-            // Send POST request to API
             const response = await fetch('https://api.the-flash.app/api/forms/broodje-benidorm-bestelling/submit', {
                 method: 'POST',
                 headers: {
@@ -1059,11 +1186,9 @@
             const result = await response.json();
             console.log('Bestelling succesvol verzonden:', result);
 
-            // Show success message
             successMessage.classList.remove('hidden');
             orderForm.reset();
 
-            // Reset quantities
             Object.keys(quantities).forEach(key => {
                 quantities[key] = 0;
             });
@@ -1071,10 +1196,8 @@
                 display.textContent = '0';
             });
 
-            // Scroll to success message
             successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
-            // Hide success message after 5 seconds
             setTimeout(() => {
                 successMessage.classList.add('hidden');
             }, 5000);
