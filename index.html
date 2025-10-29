@@ -180,7 +180,8 @@
         }
 
         .hero-section {
-            background-image: url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/bakery-interior-display-case-DwtizfsHpJIFaH1tHStjPSvaUj9fJQ.jpg');
+            background-image: url('images/hero_3.png');
+            /*background-image: url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/bakery-interior-display-case-DwtizfsHpJIFaH1tHStjPSvaUj9fJQ.jpg');*/
             background-size: cover;
             background-position: center;
             position: relative;
@@ -522,6 +523,87 @@
     </div>
 </section>
 
+<section id="over-ons" class="py-20 md:py-32 bg-gradient-to-b from-stone-50 to-white relative overflow-hidden">
+    <!-- Background Pattern -->
+    <div class="absolute inset-0 opacity-5">
+        <div class="absolute top-0 left-0 w-64 h-64 bg-amber-700 rounded-full filter blur-3xl"></div>
+        <div class="absolute bottom-0 right-0 w-96 h-96 bg-amber-500 rounded-full filter blur-3xl"></div>
+    </div>
+
+    <div class="container mx-auto px-4 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div data-aos="fade-right" class="aos-init aos-animate">
+                <span class="text-amber-700 font-semibold text-lg">Over Ons</span>
+                <h2 class="text-5xl md:text-6xl font-black text-amber-900 mt-2 mb-6">
+                    Een Stukje Nederland in Spanje
+                </h2>
+                <p class="text-xl text-amber-700 mb-6 leading-relaxed">
+                    Sinds 2015 brengen wij de authentieke smaken van Nederland naar Benidorm.
+                    Met passie en vakmanschap bereiden we dagelijks vers brood en traditionele gerechten.
+                </p>
+                <p class="text-lg text-amber-600 mb-8 leading-relaxed">
+                    Onze bakkerij is uitgegroeid tot een geliefde ontmoetingsplek voor Nederlanders
+                    die heimwee hebben naar de vertrouwde smaken van thuis.
+                </p>
+
+                <!-- Features -->
+                <div class="grid grid-cols-2 gap-6">
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0">
+                            <span class="text-2xl">🌾</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-amber-900">Vers Gebakken</h4>
+                            <p class="text-sm text-amber-700">Elke dag vers uit eigen oven</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0">
+                            <span class="text-2xl">🏆</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-amber-900">Top Kwaliteit</h4>
+                            <p class="text-sm text-amber-700">Alleen de beste ingrediënten</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0">
+                            <span class="text-2xl">❤️</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-amber-900">Met Liefde</h4>
+                            <p class="text-sm text-amber-700">Bereid zoals thuis</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0">
+                            <span class="text-2xl">🌟</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-amber-900">10+ Jaar</h4>
+                            <p class="text-sm text-amber-700">Ervaring en expertise</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Image Gallery -->
+            <div class="relative aos-init aos-animate" data-aos="fade-left">
+                <div class="grid grid-cols-2 gap-4">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/bakery-interior-display-case-DwtizfsHpJIFaH1tHStjPSvaUj9fJQ.jpg" alt="Bakkerij" class="rounded-2xl shadow-2xl transform hover:scale-105 transition-transform duration-500">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/bakery-interior-display-case-DwtizfsHpJIFaH1tHStjPSvaUj9fJQ.jpg" alt="Producten" class="rounded-2xl shadow-2xl transform hover:scale-105 transition-transform duration-500 mt-8">
+                </div>
+
+                <!-- Floating Badge -->
+                <div class="absolute -bottom-8 -left-8 bg-amber-700 text-white p-6 rounded-2xl shadow-2xl">
+                    <div class="text-4xl font-bold">10+</div>
+                    <div class="text-sm">Jaar Ervaring</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- Products Section with Tabs -->
 <section id="producten" class="py-16 md:py-24 bg-white">
     <div class="container mx-auto px-4">
@@ -536,15 +618,22 @@
                 🍞 Brood & Bollen
             </button>
             <button class="tab-button px-6 md:px-8 py-3 md:py-4 rounded-lg font-bold text-base md:text-lg" data-tab="gebak">
-                🥐 Gebak & Koek
+                🍰 Gebak & Koek
             </button>
-            <button class="tab-button px-6 md:px-8 py-3 md:py-4 rounded-lg font-bold text-base md:text-lg" data-tab="hartig">
-                🌭 Hartige Broodjes
+            <button class="tab-button px-6 md:px-8 py-3 md:py-4 rounded-lg font-bold text-base md:text-lg" data-tab="belegd-hard">
+                🥖 Belegde Broodjes (hard)
+            </button>
+            <button class="tab-button px-6 md:px-8 py-3 md:py-4 rounded-lg font-bold text-base md:text-lg" data-tab="belegd-zacht">
+                🥪 Belegde Broodjes (zacht)
+            </button>
+            <button class="tab-button px-6 md:px-8 py-3 md:py-4 rounded-lg font-bold text-base md:text-lg" data-tab="hartige-snacks">
+                🥟 Hartige Snacks
             </button>
             <button class="tab-button px-6 md:px-8 py-3 md:py-4 rounded-lg font-bold text-base md:text-lg" data-tab="seizoen">
                 🎄 Seizoensproducten
             </button>
         </div>
+
 
         <!-- Tab Content: Brood & Bollen -->
         <div id="brood-content" class="tab-content active">
@@ -1064,8 +1153,759 @@
         </div>
 
         <!-- Tab Content: Hartige Broodjes -->
-        <div id="hartig-content" class="tab-content">
+        <div id="belegd-hard-content" class="tab-content">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg" data-product="Broodje carpaccio (hard)">
+                    <div class="product-image-container">
+                        <img src="images/broodje_carpaccio.png" alt="Broodje carpaccio" class="w-full h-48 md:h-64 object-cover">
+                        <div class="add-to-order-btn animate__animated">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4"></path></svg>
+                        </div>
+                        <div class="quantity-counter hidden animate__animated">
+                            <button class="decrease-btn">−</button><span class="quantity-display">0</span><button class="increase-btn">+</button>
+                        </div>
+                    </div>
+                    <div class="p-4 md:p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Broodje carpaccio</h3>
+                            <span class="text-lg md:text-xl font-bold text-amber-700">€6,50</span>
+                        </div>
+                        <p class="text-base md:text-lg text-amber-700">Carpaccio, Grana Padano, pesto, rucola, pijnboompitten.</p>
+                    </div>
+                </div>
+
+                <!-- Broodje jong belegen kaas -->
+                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg" data-product="Broodje jong belegen kaas (hard)">
+                    <div class="product-image-container">
+                        <img src="images/broodje_jong_belegen_kaas.png" alt="Broodje jong belegen kaas" class="w-full h-48 md:h-64 object-cover">
+                        <div class="add-to-order-btn animate__animated">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4"></path></svg>
+                        </div>
+                        <div class="quantity-counter hidden animate__animated">
+                            <button class="decrease-btn">−</button><span class="quantity-display">0</span><button class="increase-btn">+</button>
+                        </div>
+                    </div>
+                    <div class="p-4 md:p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Broodje jong belegen kaas</h3>
+                            <span class="text-lg md:text-xl font-bold text-amber-700">€6,50</span>
+                        </div>
+                        <p class="text-base md:text-lg text-amber-700">Jong belegen kaas, komkommer, ijsbergsla.</p>
+                    </div>
+                </div>
+
+                <!-- Broodje oude kaas -->
+                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg" data-product="Broodje oude kaas (hard)">
+                    <div class="product-image-container">
+                        <img src="images/broodje_oude_kaas.png" alt="Broodje oude kaas" class="w-full h-48 md:h-64 object-cover">
+                        <div class="add-to-order-btn animate__animated">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4"></path></svg>
+                        </div>
+                        <div class="quantity-counter hidden animate__animated">
+                            <button class="decrease-btn">−</button><span class="quantity-display">0</span><button class="increase-btn">+</button>
+                        </div>
+                    </div>
+                    <div class="p-4 md:p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Broodje oude kaas</h3>
+                            <span class="text-lg md:text-xl font-bold text-amber-700">€6,50</span>
+                        </div>
+                        <p class="text-base md:text-lg text-amber-700">Oude kaas, ijsbergsla, komkommer.</p>
+                    </div>
+                </div>
+
+                <!-- Broodje tonijnsalade -->
+                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg" data-product="Broodje tonijnsalade (hard)">
+                    <div class="product-image-container">
+                        <img src="images/broodje_tonijnsalade.png" alt="Broodje tonijnsalade" class="w-full h-48 md:h-64 object-cover">
+                        <div class="add-to-order-btn animate__animated">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4"></path></svg>
+                        </div>
+                        <div class="quantity-counter hidden animate__animated">
+                            <button class="decrease-btn">−</button><span class="quantity-display">0</span><button class="increase-btn">+</button>
+                        </div>
+                    </div>
+                    <div class="p-4 md:p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Broodje tonijnsalade</h3>
+                            <span class="text-lg md:text-xl font-bold text-amber-700">€6,50</span>
+                        </div>
+                        <p class="text-base md:text-lg text-amber-700">Tonijnsalade, tomaat, ijsbergsla.</p>
+                    </div>
+                </div>
+
+                <!-- Broodje warme pittige kip -->
+                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg" data-product="Broodje warme pittige kip (hard)">
+                    <div class="product-image-container">
+                        <img src="images/broodje_warm_pittige_kip.png" alt="Broodje warme pittige kip" class="w-full h-48 md:h-64 object-cover">
+                        <div class="add-to-order-btn animate__animated">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4"></path></svg>
+                        </div>
+                        <div class="quantity-counter hidden animate__animated">
+                            <button class="decrease-btn">−</button><span class="quantity-display">0</span><button class="increase-btn">+</button>
+                        </div>
+                    </div>
+                    <div class="p-4 md:p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Broodje warme pittige kip</h3>
+                            <span class="text-lg md:text-xl font-bold text-amber-700">€6,50</span>
+                        </div>
+                        <p class="text-base md:text-lg text-amber-700">Kippenreepjes, pittige mayo, komkommer.</p>
+                    </div>
+                </div>
+
+                <!-- Broodje kruidenkaas -->
+                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg" data-product="Broodje kruidenkaas (hard)">
+                    <div class="product-image-container">
+                        <img src="images/broodje_kruidenkaas.png" alt="Broodje kruidenkaas" class="w-full h-48 md:h-64 object-cover">
+                        <div class="add-to-order-btn animate__animated">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4"></path></svg>
+                        </div>
+                        <div class="quantity-counter hidden animate__animated">
+                            <button class="decrease-btn">−</button><span class="quantity-display">0</span><button class="increase-btn">+</button>
+                        </div>
+                    </div>
+                    <div class="p-4 md:p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Broodje kruidenkaas</h3>
+                            <span class="text-lg md:text-xl font-bold text-amber-700">€6,50</span>
+                        </div>
+                        <p class="text-base md:text-lg text-amber-700">Kruidenkaas, ijsbergsla, komkommer.</p>
+                    </div>
+                </div>
+
+                <!-- Club sandwich kip-bacon -->
+                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg" data-product="Club sandwich kip-bacon (hard)">
+                    <div class="product-image-container">
+                        <img src="images/clubsanwich_kip.png" alt="Club sandwich kip-bacon" class="w-full h-48 md:h-64 object-cover">
+                        <div class="add-to-order-btn animate__animated">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4"></path></svg>
+                        </div>
+                        <div class="quantity-counter hidden animate__animated">
+                            <button class="decrease-btn">−</button><span class="quantity-display">0</span><button class="increase-btn">+</button>
+                        </div>
+                    </div>
+                    <div class="p-4 md:p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Club sandwich kip-bacon</h3>
+                            <span class="text-lg md:text-xl font-bold text-amber-700">€6,50</span>
+                        </div>
+                        <p class="text-base md:text-lg text-amber-700">Gerookte kipfilet, bacon, ijsbergsla, tomaat, komkommer, mayonaise.</p>
+                    </div>
+                </div>
+
+                <!-- Broodje kip-kerriesalade -->
+                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg" data-product="Broodje kip-kerriesalade (hard)">
+                    <div class="product-image-container">
+                        <img src="images/broodje_kip_kerrie_salade.png" alt="Broodje kip-kerriesalade" class="w-full h-48 md:h-64 object-cover">
+                        <div class="add-to-order-btn animate__animated">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4"></path></svg>
+                        </div>
+                        <div class="quantity-counter hidden animate__animated">
+                            <button class="decrease-btn">−</button><span class="quantity-display">0</span><button class="increase-btn">+</button>
+                        </div>
+                    </div>
+                    <div class="p-4 md:p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Broodje kip-kerriesalade</h3>
+                            <span class="text-lg md:text-xl font-bold text-amber-700">€6,50</span>
+                        </div>
+                        <p class="text-base md:text-lg text-amber-700">Kip-kerriesalade, komkommer, ijsbergsla.</p>
+                    </div>
+                </div>
+
+                <!-- Broodje salami -->
+                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg" data-product="Broodje salami (hard)">
+                    <div class="product-image-container">
+                        <img src="images/broodje_salami.png" alt="Broodje salami" class="w-full h-48 md:h-64 object-cover">
+                        <div class="add-to-order-btn animate__animated">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4"></path></svg>
+                        </div>
+                        <div class="quantity-counter hidden animate__animated">
+                            <button class="decrease-btn">−</button><span class="quantity-display">0</span><button class="increase-btn">+</button>
+                        </div>
+                    </div>
+                    <div class="p-4 md:p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Broodje salami</h3>
+                            <span class="text-lg md:text-xl font-bold text-amber-700">€6,50</span>
+                        </div>
+                        <p class="text-base md:text-lg text-amber-700">Salami, komkommer, rucola.</p>
+                    </div>
+                </div>
+
+                <!-- Broodje warme beenham -->
+                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg" data-product="Broodje warme beenham (hard)">
+                    <div class="product-image-container">
+                        <img src="images/broodje_warme_beenham.png" alt="Broodje warme beenham" class="w-full h-48 md:h-64 object-cover">
+                        <div class="add-to-order-btn animate__animated">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4"></path></svg>
+                        </div>
+                        <div class="quantity-counter hidden animate__animated">
+                            <button class="decrease-btn">−</button><span class="quantity-display">0</span><button class="increase-btn">+</button>
+                        </div>
+                    </div>
+                    <div class="p-4 md:p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Broodje warme beenham</h3>
+                            <span class="text-lg md:text-xl font-bold text-amber-700">€6,50</span>
+                        </div>
+                        <p class="text-base md:text-lg text-amber-700">Warme beenham, ijsbergsla, mosterdsaus.</p>
+                    </div>
+                </div>
+
+                <!-- Broodje eiersalade -->
+                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg" data-product="Broodje eiersalade (hard)">
+                    <div class="product-image-container">
+                        <img src="images/broodje_eiersalade.png" alt="Broodje eiersalade" class="w-full h-48 md:h-64 object-cover">
+                        <div class="add-to-order-btn animate__animated">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4"></path></svg>
+                        </div>
+                        <div class="quantity-counter hidden animate__animated">
+                            <button class="decrease-btn">−</button><span class="quantity-display">0</span><button class="increase-btn">+</button>
+                        </div>
+                    </div>
+                    <div class="p-4 md:p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Broodje eiersalade</h3>
+                            <span class="text-lg md:text-xl font-bold text-amber-700">€6,50</span>
+                        </div>
+                        <p class="text-base md:text-lg text-amber-700">Eiersalade, ijsbergsla, komkommer.</p>
+                    </div>
+                </div>
+
+                <!-- Broodje zalm -->
+                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg" data-product="Broodje zalm (hard)">
+                    <div class="product-image-container">
+                        <img src="images/broodje_gerookte_zalm.png" alt="Broodje zalm" class="w-full h-48 md:h-64 object-cover">
+                        <div class="add-to-order-btn animate__animated">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4"></path></svg>
+                        </div>
+                        <div class="quantity-counter hidden animate__animated">
+                            <button class="decrease-btn">−</button><span class="quantity-display">0</span><button class="increase-btn">+</button>
+                        </div>
+                    </div>
+                    <div class="p-4 md:p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Broodje zalm</h3>
+                            <span class="text-lg md:text-xl font-bold text-amber-700">€6,50</span>
+                        </div>
+                        <p class="text-base md:text-lg text-amber-700">Zalm, ijsbergsla, kruidenkaas.</p>
+                    </div>
+                </div>
+
+                <!-- Broodje filet americain -->
+                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg" data-product="Broodje filet americain (hard)">
+                    <div class="product-image-container">
+                        <img src="images/broodje_filter_americain.png" alt="Broodje filet americain" class="w-full h-48 md:h-64 object-cover">
+                        <div class="add-to-order-btn animate__animated">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4"></path></svg>
+                        </div>
+                        <div class="quantity-counter hidden animate__animated">
+                            <button class="decrease-btn">−</button><span class="quantity-display">0</span><button class="increase-btn">+</button>
+                        </div>
+                    </div>
+                    <div class="p-4 md:p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Broodje filet americain</h3>
+                            <span class="text-lg md:text-xl font-bold text-amber-700">€6,50</span>
+                        </div>
+                        <p class="text-base md:text-lg text-amber-700">Filet americain en ei, met ijsbergsla.</p>
+                    </div>
+                </div>
+
+                <!-- Broodje warme omelet -->
+                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg" data-product="Broodje warme omelet (hard)">
+                    <div class="product-image-container">
+                        <img src="images/broodje_warme_omelet.png" alt="Broodje warme omelet" class="w-full h-48 md:h-64 object-cover">
+                        <div class="add-to-order-btn animate__animated">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4"></path></svg>
+                        </div>
+                        <div class="quantity-counter hidden animate__animated">
+                            <button class="decrease-btn">−</button><span class="quantity-display">0</span><button class="increase-btn">+</button>
+                        </div>
+                    </div>
+                    <div class="p-4 md:p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Broodje warme omelet</h3>
+                            <span class="text-lg md:text-xl font-bold text-amber-700">€6,50</span>
+                        </div>
+                        <p class="text-base md:text-lg text-amber-700">Omelet, bacon, oude kaas, rucola.</p>
+                    </div>
+                </div>
+
+                <!-- Broodje kip-bacon -->
+                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg" data-product="Broodje kip-bacon (hard)">
+                    <div class="product-image-container">
+                        <img src="images/broodje_kip_bacon.png" alt="Broodje kip-bacon" class="w-full h-48 md:h-64 object-cover">
+                        <div class="add-to-order-btn animate__animated">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4"></path></svg>
+                        </div>
+                        <div class="quantity-counter hidden animate__animated">
+                            <button class="decrease-btn">−</button><span class="quantity-display">0</span><button class="increase-btn">+</button>
+                        </div>
+                    </div>
+                    <div class="p-4 md:p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Broodje kip-bacon</h3>
+                            <span class="text-lg md:text-xl font-bold text-amber-700">€6,50</span>
+                        </div>
+                        <p class="text-base md:text-lg text-amber-700">Gerookte kipfilet, ei, bacon, ijsbergsla, tomaat, komkommer, mayonaise.</p>
+                    </div>
+                </div>
+
+                <!-- Broodje gezond -->
+                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg" data-product="Broodje gezond (hard)">
+                    <div class="product-image-container">
+                        <img src="images/broodje_gezond.png" alt="Broodje gezond" class="w-full h-48 md:h-64 object-cover">
+                        <div class="add-to-order-btn animate__animated">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4"></path></svg>
+                        </div>
+                        <div class="quantity-counter hidden animate__animated">
+                            <button class="decrease-btn">−</button><span class="quantity-display">0</span><button class="increase-btn">+</button>
+                        </div>
+                    </div>
+                    <div class="p-4 md:p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Broodje gezond</h3>
+                            <span class="text-lg md:text-xl font-bold text-amber-700">€6,50</span>
+                        </div>
+                        <p class="text-base md:text-lg text-amber-700">Jong belegen kaas, tomaat, ijsbergsla, ham, gekookt ei, komkommer.</p>
+                    </div>
+                </div>
+
+                <!-- Broodje brie -->
+                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg" data-product="Broodje brie (hard)">
+                    <div class="product-image-container">
+                        <img src="images/broodje_brie.png" alt="Broodje brie" class="w-full h-48 md:h-64 object-cover">
+                        <div class="add-to-order-btn animate__animated">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4"></path></svg>
+                        </div>
+                        <div class="quantity-counter hidden animate__animated">
+                            <button class="decrease-btn">−</button><span class="quantity-display">0</span><button class="increase-btn">+</button>
+                        </div>
+                    </div>
+                    <div class="p-4 md:p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Broodje brie</h3>
+                            <span class="text-lg md:text-xl font-bold text-amber-700">€6,50</span>
+                        </div>
+                        <p class="text-base md:text-lg text-amber-700">Brie, walnoten, honing, ijsbergsla.</p>
+                    </div>
+                </div>
+
+                <!-- Broodje warme gehaktbal -->
+                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg" data-product="Broodje warme gehaktbal (hard)">
+                    <div class="product-image-container">
+                        <img src="images/broodje_gehaktbal.png" alt="Broodje warme gehaktbal" class="w-full h-48 md:h-64 object-cover">
+                        <div class="add-to-order-btn animate__animated">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4"></path></svg>
+                        </div>
+                        <div class="quantity-counter hidden animate__animated">
+                            <button class="decrease-btn">−</button><span class="quantity-display">0</span><button class="increase-btn">+</button>
+                        </div>
+                    </div>
+                    <div class="p-4 md:p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Broodje warme gehaktbal</h3>
+                            <span class="text-lg md:text-xl font-bold text-amber-700">€6,50</span>
+                        </div>
+                        <p class="text-base md:text-lg text-amber-700">Gehaktbal met mosterdsaus en ijsbergsla.</p>
+                    </div>
+                </div>
+
+                <!-- Broodje osseworst -->
+                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg" data-product="Broodje osseworst (hard)">
+                    <div class="product-image-container">
+                        <img src="images/broodje_osseworst.png" alt="Broodje osseworst" class="w-full h-48 md:h-64 object-cover">
+                        <div class="add-to-order-btn animate__animated">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4"></path></svg>
+                        </div>
+                        <div class="quantity-counter hidden animate__animated">
+                            <button class="decrease-btn">−</button><span class="quantity-display">0</span><button class="increase-btn">+</button>
+                        </div>
+                    </div>
+                    <div class="p-4 md:p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Broodje osseworst</h3>
+                            <span class="text-lg md:text-xl font-bold text-amber-700">€4,50</span>
+                        </div>
+                        <p class="text-base md:text-lg text-amber-700">Sla, osseworst, truffelsaus, Amsterdamse ui.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--   Hartige zachte broodjes     -->
+        <div id="belegd-zacht-content" class="tab-content">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg" data-product="Broodje carpaccio (zacht)">
+                    <div class="product-image-container">
+                        <img src="images/broodje_carpaccio_zacht.png" alt="Broodje carpaccio (zacht)" class="w-full h-48 md:h-64 object-cover">
+                        <div class="add-to-order-btn animate__animated">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4"></path></svg>
+                        </div>
+                        <div class="quantity-counter hidden animate__animated">
+                            <button class="decrease-btn">−</button><span class="quantity-display">0</span><button class="increase-btn">+</button>
+                        </div>
+                    </div>
+                    <div class="p-4 md:p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Broodje carpaccio</h3>
+                            <span class="text-lg md:text-xl font-bold text-amber-700">€6,50</span>
+                        </div>
+                        <p class="text-base md:text-lg text-amber-700">Carpaccio, Grana Padano, pesto, rucola, pijnboompitten.</p>
+                    </div>
+                </div>
+
+                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg" data-product="Broodje jong belegen kaas (zacht)">
+                    <div class="product-image-container">
+                        <img src="images/broodje_jong_belegen_kaas_zacht.png" alt="Broodje jong belegen kaas (zacht)" class="w-full h-48 md:h-64 object-cover">
+                        <div class="add-to-order-btn animate__animated">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4"></path></svg>
+                        </div>
+                        <div class="quantity-counter hidden animate__animated">
+                            <button class="decrease-btn">−</button><span class="quantity-display">0</span><button class="increase-btn">+</button>
+                        </div>
+                    </div>
+                    <div class="p-4 md:p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Broodje jong belegen kaas</h3>
+                            <span class="text-lg md:text-xl font-bold text-amber-700">€6,50</span>
+                        </div>
+                        <p class="text-base md:text-lg text-amber-700">Jong belegen kaas, komkommer, ijsbergsla.</p>
+                    </div>
+                </div>
+
+                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg" data-product="Broodje oude kaas (zacht)">
+                    <div class="product-image-container">
+                        <img src="images/broodje_oude_kaas_zacht.png" alt="Broodje oude kaas (zacht)" class="w-full h-48 md:h-64 object-cover">
+                        <div class="add-to-order-btn animate__animated">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4"></path></svg>
+                        </div>
+                        <div class="quantity-counter hidden animate__animated">
+                            <button class="decrease-btn">−</button><span class="quantity-display">0</span><button class="increase-btn">+</button>
+                        </div>
+                    </div>
+                    <div class="p-4 md:p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Broodje oude kaas</h3>
+                            <span class="text-lg md:text-xl font-bold text-amber-700">€6,50</span>
+                        </div>
+                        <p class="text-base md:text-lg text-amber-700">Oude kaas, ijsbergsla, komkommer.</p>
+                    </div>
+                </div>
+
+                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg" data-product="Broodje tonijnsalade (zacht)">
+                    <div class="product-image-container">
+                        <img src="images/broodje_tonijnsalade_zacht.png" alt="Broodje tonijnsalade (zacht)" class="w-full h-48 md:h-64 object-cover">
+                        <div class="add-to-order-btn animate__animated">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4"></path></svg>
+                        </div>
+                        <div class="quantity-counter hidden animate__animated">
+                            <button class="decrease-btn">−</button><span class="quantity-display">0</span><button class="increase-btn">+</button>
+                        </div>
+                    </div>
+                    <div class="p-4 md:p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Broodje tonijnsalade</h3>
+                            <span class="text-lg md:text-xl font-bold text-amber-700">€6,50</span>
+                        </div>
+                        <p class="text-base md:text-lg text-amber-700">Tonijnsalade, tomaat, ijsbergsla.</p>
+                    </div>
+                </div>
+
+                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg" data-product="Broodje warme pittige kip (zacht)">
+                    <div class="product-image-container">
+                        <img src="images/broodje_warm_pittige_kip_zacht.png" alt="Broodje warme pittige kip (zacht)" class="w-full h-48 md:h-64 object-cover">
+                        <div class="add-to-order-btn animate__animated">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4"></path></svg>
+                        </div>
+                        <div class="quantity-counter hidden animate__animated">
+                            <button class="decrease-btn">−</button><span class="quantity-display">0</span><button class="increase-btn">+</button>
+                        </div>
+                    </div>
+                    <div class="p-4 md:p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Broodje warme pittige kip</h3>
+                            <span class="text-lg md:text-xl font-bold text-amber-700">€6,50</span>
+                        </div>
+                        <p class="text-base md:text-lg text-amber-700">Kippenreepjes, pittige mayo, komkommer.</p>
+                    </div>
+                </div>
+
+                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg" data-product="Broodje kruidenkaas (zacht)">
+                    <div class="product-image-container">
+                        <img src="images/broodje_kruidenkaas_zacht.png" alt="Broodje kruidenkaas (zacht)" class="w-full h-48 md:h-64 object-cover">
+                        <div class="add-to-order-btn animate__animated">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4"></path></svg>
+                        </div>
+                        <div class="quantity-counter hidden animate__animated">
+                            <button class="decrease-btn">−</button><span class="quantity-display">0</span><button class="increase-btn">+</button>
+                        </div>
+                    </div>
+                    <div class="p-4 md:p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Broodje kruidenkaas</h3>
+                            <span class="text-lg md:text-xl font-bold text-amber-700">€6,50</span>
+                        </div>
+                        <p class="text-base md:text-lg text-amber-700">Kruidenkaas, ijsbergsla, komkommer.</p>
+                    </div>
+                </div>
+
+                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg" data-product="Club sandwich kip-bacon (zacht)">
+                    <div class="product-image-container">
+                        <img src="images/clubsanwich_kip_zacht.png" alt="Club sandwich kip-bacon (zacht)" class="w-full h-48 md:h-64 object-cover">
+                        <div class="add-to-order-btn animate__animated">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4"></path></svg>
+                        </div>
+                        <div class="quantity-counter hidden animate__animated">
+                            <button class="decrease-btn">−</button><span class="quantity-display">0</span><button class="increase-btn">+</button>
+                        </div>
+                    </div>
+                    <div class="p-4 md:p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Club sandwich kip-bacon</h3>
+                            <span class="text-lg md:text-xl font-bold text-amber-700">€6,50</span>
+                        </div>
+                        <p class="text-base md:text-lg text-amber-700">Gerookte kipfilet, bacon, ijsbergsla, tomaat, komkommer, mayonaise.</p>
+                    </div>
+                </div>
+
+                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg" data-product="Broodje kip-kerriesalade (zacht)">
+                    <div class="product-image-container">
+                        <img src="images/broodje_kip_kerrie_salade_zacht.png" alt="Broodje kip-kerriesalade (zacht)" class="w-full h-48 md:h-64 object-cover">
+                        <div class="add-to-order-btn animate__animated">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4"></path></svg>
+                        </div>
+                        <div class="quantity-counter hidden animate__animated">
+                            <button class="decrease-btn">−</button><span class="quantity-display">0</span><button class="increase-btn">+</button>
+                        </div>
+                    </div>
+                    <div class="p-4 md:p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Broodje kip-kerriesalade</h3>
+                            <span class="text-lg md:text-xl font-bold text-amber-700">€6,50</span>
+                        </div>
+                        <p class="text-base md:text-lg text-amber-700">Kip-kerriesalade, komkommer, ijsbergsla.</p>
+                    </div>
+                </div>
+
+                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg" data-product="Broodje salami (zacht)">
+                    <div class="product-image-container">
+                        <img src="images/broodje_salami_zacht.png" alt="Broodje salami (zacht)" class="w-full h-48 md:h-64 object-cover">
+                        <div class="add-to-order-btn animate__animated">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4"></path></svg>
+                        </div>
+                        <div class="quantity-counter hidden animate__animated">
+                            <button class="decrease-btn">−</button><span class="quantity-display">0</span><button class="increase-btn">+</button>
+                        </div>
+                    </div>
+                    <div class="p-4 md:p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Broodje salami</h3>
+                            <span class="text-lg md:text-xl font-bold text-amber-700">€6,50</span>
+                        </div>
+                        <p class="text-base md:text-lg text-amber-700">Salami, komkommer, rucola.</p>
+                    </div>
+                </div>
+
+                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg" data-product="Broodje warme beenham (zacht)">
+                    <div class="product-image-container">
+                        <img src="images/broodje_warme_beenham_zacht.png" alt="Broodje warme beenham (zacht)" class="w-full h-48 md:h-64 object-cover">
+                        <div class="add-to-order-btn animate__animated">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4"></path></svg>
+                        </div>
+                        <div class="quantity-counter hidden animate__animated">
+                            <button class="decrease-btn">−</button><span class="quantity-display">0</span><button class="increase-btn">+</button>
+                        </div>
+                    </div>
+                    <div class="p-4 md:p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Broodje warme beenham</h3>
+                            <span class="text-lg md:text-xl font-bold text-amber-700">€6,50</span>
+                        </div>
+                        <p class="text-base md:text-lg text-amber-700">Warme beenham, ijsbergsla, mosterdsaus.</p>
+                    </div>
+                </div>
+
+                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg" data-product="Broodje eiersalade (zacht)">
+                    <div class="product-image-container">
+                        <img src="images/broodje_eiersalade_zacht.png" alt="Broodje eiersalade (zacht)" class="w-full h-48 md:h-64 object-cover">
+                        <div class="add-to-order-btn animate__animated">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4"></path></svg>
+                        </div>
+                        <div class="quantity-counter hidden animate__animated">
+                            <button class="decrease-btn">−</button><span class="quantity-display">0</span><button class="increase-btn">+</button>
+                        </div>
+                    </div>
+                    <div class="p-4 md:p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Broodje eiersalade</h3>
+                            <span class="text-lg md:text-xl font-bold text-amber-700">€6,50</span>
+                        </div>
+                        <p class="text-base md:text-lg text-amber-700">Eiersalade, ijsbergsla, komkommer.</p>
+                    </div>
+                </div>
+
+                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg" data-product="Broodje zalm (zacht)">
+                    <div class="product-image-container">
+                        <img src="images/broodje_gerookte_zalm_zacht.png" alt="Broodje zalm (zacht)" class="w-full h-48 md:h-64 object-cover">
+                        <div class="add-to-order-btn animate__animated">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4"></path></svg>
+                        </div>
+                        <div class="quantity-counter hidden animate__animated">
+                            <button class="decrease-btn">−</button><span class="quantity-display">0</span><button class="increase-btn">+</button>
+                        </div>
+                    </div>
+                    <div class="p-4 md:p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Broodje zalm</h3>
+                            <span class="text-lg md:text-xl font-bold text-amber-700">€6,50</span>
+                        </div>
+                        <p class="text-base md:text-lg text-amber-700">Zalm, ijsbergsla, kruidenkaas.</p>
+                    </div>
+                </div>
+
+                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg" data-product="Broodje filet americain (zacht)">
+                    <div class="product-image-container">
+                        <img src="images/broodje_filet_americain_zacht.png" alt="Broodje filet americain (zacht)" class="w-full h-48 md:h-64 object-cover">
+                        <div class="add-to-order-btn animate__animated">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4"></path></svg>
+                        </div>
+                        <div class="quantity-counter hidden animate__animated">
+                            <button class="decrease-btn">−</button><span class="quantity-display">0</span><button class="increase-btn">+</button>
+                        </div>
+                    </div>
+                    <div class="p-4 md:p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Broodje filet americain</h3>
+                            <span class="text-lg md:text-xl font-bold text-amber-700">€6,50</span>
+                        </div>
+                        <p class="text-base md:text-lg text-amber-700">Filet americain en ei, met ijsbergsla.</p>
+                    </div>
+                </div>
+
+                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg" data-product="Broodje warme omelet (zacht)">
+                    <div class="product-image-container">
+                        <img src="images/broodje_warme_omelet_zacht.png" alt="Broodje warme omelet (zacht)" class="w-full h-48 md:h-64 object-cover">
+                        <div class="add-to-order-btn animate__animated">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4"></path></svg>
+                        </div>
+                        <div class="quantity-counter hidden animate__animated">
+                            <button class="decrease-btn">−</button><span class="quantity-display">0</span><button class="increase-btn">+</button>
+                        </div>
+                    </div>
+                    <div class="p-4 md:p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Broodje warme omelet</h3>
+                            <span class="text-lg md:text-xl font-bold text-amber-700">€6,50</span>
+                        </div>
+                        <p class="text-base md:text-lg text-amber-700">Omelet, bacon, oude kaas, rucola.</p>
+                    </div>
+                </div>
+
+                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg" data-product="Broodje kip-bacon (zacht)">
+                    <div class="product-image-container">
+                        <img src="images/broodje_kip_bacon_zacht.png" alt="Broodje kip-bacon (zacht)" class="w-full h-48 md:h-64 object-cover">
+                        <div class="add-to-order-btn animate__animated">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4"></path></svg>
+                        </div>
+                        <div class="quantity-counter hidden animate__animated">
+                            <button class="decrease-btn">−</button><span class="quantity-display">0</span><button class="increase-btn">+</button>
+                        </div>
+                    </div>
+                    <div class="p-4 md:p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Broodje kip-bacon</h3>
+                            <span class="text-lg md:text-xl font-bold text-amber-700">€6,50</span>
+                        </div>
+                        <p class="text-base md:text-lg text-amber-700">Gerookte kipfilet, ei, bacon, ijsbergsla, tomaat, komkommer, mayonaise.</p>
+                    </div>
+                </div>
+
+                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg" data-product="Broodje gezond (zacht)">
+                    <div class="product-image-container">
+                        <img src="images/broodje_gezond_zacht.png" alt="Broodje gezond (zacht)" class="w-full h-48 md:h-64 object-cover">
+                        <div class="add-to-order-btn animate__animated">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4"></path></svg>
+                        </div>
+                        <div class="quantity-counter hidden animate__animated">
+                            <button class="decrease-btn">−</button><span class="quantity-display">0</span><button class="increase-btn">+</button>
+                        </div>
+                    </div>
+                    <div class="p-4 md:p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Broodje gezond</h3>
+                            <span class="text-lg md:text-xl font-bold text-amber-700">€6,50</span>
+                        </div>
+                        <p class="text-base md:text-lg text-amber-700">Jong belegen kaas, tomaat, ijsbergsla, ham, gekookt ei, komkommer.</p>
+                    </div>
+                </div>
+
+                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg" data-product="Broodje brie (zacht)">
+                    <div class="product-image-container">
+                        <img src="images/broodje_brie_zacht.png" alt="Broodje brie (zacht)" class="w-full h-48 md:h-64 object-cover">
+                        <div class="add-to-order-btn animate__animated">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4"></path></svg>
+                        </div>
+                        <div class="quantity-counter hidden animate__animated">
+                            <button class="decrease-btn">−</button><span class="quantity-display">0</span><button class="increase-btn">+</button>
+                        </div>
+                    </div>
+                    <div class="p-4 md:p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Broodje brie</h3>
+                            <span class="text-lg md:text-xl font-bold text-amber-700">€6,50</span>
+                        </div>
+                        <p class="text-base md:text-lg text-amber-700">Brie, walnoten, honing, ijsbergsla.</p>
+                    </div>
+                </div>
+
+                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg" data-product="Broodje warme gehaktbal (zacht)">
+                    <div class="product-image-container">
+                        <img src="images/broodje_gehaktbal_zacht.png" alt="Broodje warme gehaktbal (zacht)" class="w-full h-48 md:h-64 object-cover">
+                        <div class="add-to-order-btn animate__animated">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4"></path></svg>
+                        </div>
+                        <div class="quantity-counter hidden animate__animated">
+                            <button class="decrease-btn">−</button><span class="quantity-display">0</span><button class="increase-btn">+</button>
+                        </div>
+                    </div>
+                    <div class="p-4 md:p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Broodje warme gehaktbal</h3>
+                            <span class="text-lg md:text-xl font-bold text-amber-700">€6,50</span>
+                        </div>
+                        <p class="text-base md:text-lg text-amber-700">Gehaktbal met mosterdsaus en ijsbergsla.</p>
+                    </div>
+                </div>
+
+                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg" data-product="Broodje osseworst (zacht)">
+                    <div class="product-image-container">
+                        <img src="images/broodje_osseworst_zacht.png" alt="Broodje osseworst (zacht)" class="w-full h-48 md:h-64 object-cover">
+                        <div class="add-to-order-btn animate__animated">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4"></path></svg>
+                        </div>
+                        <div class="quantity-counter hidden animate__animated">
+                            <button class="decrease-btn">−</button><span class="quantity-display">0</span><button class="increase-btn">+</button>
+                        </div>
+                    </div>
+                    <div class="p-4 md:p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Broodje osseworst</h3>
+                            <span class="text-lg md:text-xl font-bold text-amber-700">€4,50</span>
+                        </div>
+                        <p class="text-base md:text-lg text-amber-700">Sla, osseworst, truffelsaus, Amsterdamse ui.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="hartige-snacks-content" class="tab-content">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+                <!-- Snacks: unchanged (no hard/soft variant) -->
                 <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg" data-product="Worstenbroodjes">
                     <div class="product-image-container">
                         <img src="images/worstenbroodje.png" alt="Worstenbroodjes" class="w-full h-48 md:h-64 object-cover">
@@ -1157,386 +1997,9 @@
                         <p class="text-base md:text-lg text-amber-700">Roomboterbladerdeeg met gekruid rundergehakt. Stevig, hartig en vullend.</p>
                     </div>
                 </div>
-                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg" data-product="Broodje carpaccio">
-                    <div class="product-image-container">
-                        <img src="images/broodje_carpaccio.png" alt="Broodje carpaccio" class="w-full h-48 md:h-64 object-cover">
-                        <div class="add-to-order-btn animate__animated">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4"></path></svg>
-                        </div>
-                        <div class="quantity-counter hidden animate__animated">
-                            <button class="decrease-btn">−</button><span class="quantity-display">0</span><button class="increase-btn">+</button>
-                        </div>
-                    </div>
-                    <div class="p-4 md:p-6">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Broodje carpaccio</h3>
-                            <span class="text-lg md:text-xl font-bold text-amber-700">€6,50</span>
-                        </div>
-                        <p class="text-base md:text-lg text-amber-700">Carpaccio, Grana Padano, pesto, rucola, pijnboompitten.</p>
-                    </div>
-                </div>
-
-                <!-- Broodje jong belegen kaas -->
-                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg" data-product="Broodje jong belegen kaas">
-                    <div class="product-image-container">
-                        <img src="images/broodje_jong_belegen_kaas.png" alt="Broodje jong belegen kaas" class="w-full h-48 md:h-64 object-cover">
-                        <div class="add-to-order-btn animate__animated">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4"></path></svg>
-                        </div>
-                        <div class="quantity-counter hidden animate__animated">
-                            <button class="decrease-btn">−</button><span class="quantity-display">0</span><button class="increase-btn">+</button>
-                        </div>
-                    </div>
-                    <div class="p-4 md:p-6">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Broodje jong belegen kaas</h3>
-                            <span class="text-lg md:text-xl font-bold text-amber-700">€6,50</span>
-                        </div>
-                        <p class="text-base md:text-lg text-amber-700">Jong belegen kaas, komkommer, ijsbergsla.</p>
-                    </div>
-                </div>
-
-                <!-- Broodje oude kaas -->
-                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg" data-product="Broodje oude kaas">
-                    <div class="product-image-container">
-                        <img src="images/broodje_oude_kaas.png" alt="Broodje oude kaas" class="w-full h-48 md:h-64 object-cover">
-                        <div class="add-to-order-btn animate__animated">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4"></path></svg>
-                        </div>
-                        <div class="quantity-counter hidden animate__animated">
-                            <button class="decrease-btn">−</button><span class="quantity-display">0</span><button class="increase-btn">+</button>
-                        </div>
-                    </div>
-                    <div class="p-4 md:p-6">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Broodje oude kaas</h3>
-                            <span class="text-lg md:text-xl font-bold text-amber-700">€6,50</span>
-                        </div>
-                        <p class="text-base md:text-lg text-amber-700">Oude kaas, ijsbergsla, komkommer.</p>
-                    </div>
-                </div>
-
-                <!-- Broodje tonijnsalade -->
-                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg" data-product="Broodje tonijnsalade">
-                    <div class="product-image-container">
-                        <img src="images/broodje_tonijnsalade.png" alt="Broodje tonijnsalade" class="w-full h-48 md:h-64 object-cover">
-                        <div class="add-to-order-btn animate__animated">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4"></path></svg>
-                        </div>
-                        <div class="quantity-counter hidden animate__animated">
-                            <button class="decrease-btn">−</button><span class="quantity-display">0</span><button class="increase-btn">+</button>
-                        </div>
-                    </div>
-                    <div class="p-4 md:p-6">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Broodje tonijnsalade</h3>
-                            <span class="text-lg md:text-xl font-bold text-amber-700">€6,50</span>
-                        </div>
-                        <p class="text-base md:text-lg text-amber-700">Tonijnsalade, tomaat, ijsbergsla.</p>
-                    </div>
-                </div>
-
-                <!-- Broodje warme pittige kip -->
-                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg" data-product="Broodje warme pittige kip">
-                    <div class="product-image-container">
-                        <img src="images/broodje_warm_pittige_kip.png" alt="Broodje warme pittige kip" class="w-full h-48 md:h-64 object-cover">
-                        <div class="add-to-order-btn animate__animated">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4"></path></svg>
-                        </div>
-                        <div class="quantity-counter hidden animate__animated">
-                            <button class="decrease-btn">−</button><span class="quantity-display">0</span><button class="increase-btn">+</button>
-                        </div>
-                    </div>
-                    <div class="p-4 md:p-6">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Broodje warme pittige kip</h3>
-                            <span class="text-lg md:text-xl font-bold text-amber-700">€6,50</span>
-                        </div>
-                        <p class="text-base md:text-lg text-amber-700">Kippenreepjes, pittige mayo, komkommer.</p>
-                    </div>
-                </div>
-
-                <!-- Broodje kruidenkaas -->
-                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg" data-product="Broodje kruidenkaas">
-                    <div class="product-image-container">
-                        <img src="images/broodje_kruidenkaas.png" alt="Broodje kruidenkaas" class="w-full h-48 md:h-64 object-cover">
-                        <div class="add-to-order-btn animate__animated">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4"></path></svg>
-                        </div>
-                        <div class="quantity-counter hidden animate__animated">
-                            <button class="decrease-btn">−</button><span class="quantity-display">0</span><button class="increase-btn">+</button>
-                        </div>
-                    </div>
-                    <div class="p-4 md:p-6">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Broodje kruidenkaas</h3>
-                            <span class="text-lg md:text-xl font-bold text-amber-700">€6,50</span>
-                        </div>
-                        <p class="text-base md:text-lg text-amber-700">Kruidenkaas, ijsbergsla, komkommer.</p>
-                    </div>
-                </div>
-
-                <!-- Club sandwich kip-bacon -->
-                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg" data-product="Club sandwich kip-bacon">
-                    <div class="product-image-container">
-                        <img src="images/clubsanwich_kip.png" alt="Club sandwich kip-bacon" class="w-full h-48 md:h-64 object-cover">
-                        <div class="add-to-order-btn animate__animated">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4"></path></svg>
-                        </div>
-                        <div class="quantity-counter hidden animate__animated">
-                            <button class="decrease-btn">−</button><span class="quantity-display">0</span><button class="increase-btn">+</button>
-                        </div>
-                    </div>
-                    <div class="p-4 md:p-6">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Club sandwich kip-bacon</h3>
-                            <span class="text-lg md:text-xl font-bold text-amber-700">€6,50</span>
-                        </div>
-                        <p class="text-base md:text-lg text-amber-700">Gerookte kipfilet, bacon, ijsbergsla, tomaat, komkommer, mayonaise.</p>
-                    </div>
-                </div>
-
-                <!-- Broodje kip-kerriesalade -->
-                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg" data-product="Broodje kip-kerriesalade">
-                    <div class="product-image-container">
-                        <img src="images/broodje_kip_kerrie_salade.png" alt="Broodje kip-kerriesalade" class="w-full h-48 md:h-64 object-cover">
-                        <div class="add-to-order-btn animate__animated">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4"></path></svg>
-                        </div>
-                        <div class="quantity-counter hidden animate__animated">
-                            <button class="decrease-btn">−</button><span class="quantity-display">0</span><button class="increase-btn">+</button>
-                        </div>
-                    </div>
-                    <div class="p-4 md:p-6">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Broodje kip-kerriesalade</h3>
-                            <span class="text-lg md:text-xl font-bold text-amber-700">€6,50</span>
-                        </div>
-                        <p class="text-base md:text-lg text-amber-700">Kip-kerriesalade, komkommer, ijsbergsla.</p>
-                    </div>
-                </div>
-
-                <!-- Broodje salami -->
-                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg" data-product="Broodje salami">
-                    <div class="product-image-container">
-                        <img src="images/broodje_salami.png" alt="Broodje salami" class="w-full h-48 md:h-64 object-cover">
-                        <div class="add-to-order-btn animate__animated">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4"></path></svg>
-                        </div>
-                        <div class="quantity-counter hidden animate__animated">
-                            <button class="decrease-btn">−</button><span class="quantity-display">0</span><button class="increase-btn">+</button>
-                        </div>
-                    </div>
-                    <div class="p-4 md:p-6">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Broodje salami</h3>
-                            <span class="text-lg md:text-xl font-bold text-amber-700">€6,50</span>
-                        </div>
-                        <p class="text-base md:text-lg text-amber-700">Salami, komkommer, rucola.</p>
-                    </div>
-                </div>
-
-                <!-- Broodje warme beenham -->
-                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg" data-product="Broodje warme beenham">
-                    <div class="product-image-container">
-                        <img src="images/broodje_warme_beenham.png" alt="Broodje warme beenham" class="w-full h-48 md:h-64 object-cover">
-                        <div class="add-to-order-btn animate__animated">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4"></path></svg>
-                        </div>
-                        <div class="quantity-counter hidden animate__animated">
-                            <button class="decrease-btn">−</button><span class="quantity-display">0</span><button class="increase-btn">+</button>
-                        </div>
-                    </div>
-                    <div class="p-4 md:p-6">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Broodje warme beenham</h3>
-                            <span class="text-lg md:text-xl font-bold text-amber-700">€6,50</span>
-                        </div>
-                        <p class="text-base md:text-lg text-amber-700">Warme beenham, ijsbergsla, mosterdsaus.</p>
-                    </div>
-                </div>
-
-                <!-- Broodje eiersalade -->
-                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg" data-product="Broodje eiersalade">
-                    <div class="product-image-container">
-                        <img src="images/broodje_eiersalade.png" alt="Broodje eiersalade" class="w-full h-48 md:h-64 object-cover">
-                        <div class="add-to-order-btn animate__animated">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4"></path></svg>
-                        </div>
-                        <div class="quantity-counter hidden animate__animated">
-                            <button class="decrease-btn">−</button><span class="quantity-display">0</span><button class="increase-btn">+</button>
-                        </div>
-                    </div>
-                    <div class="p-4 md:p-6">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Broodje eiersalade</h3>
-                            <span class="text-lg md:text-xl font-bold text-amber-700">€6,50</span>
-                        </div>
-                        <p class="text-base md:text-lg text-amber-700">Eiersalade, ijsbergsla, komkommer.</p>
-                    </div>
-                </div>
-
-                <!-- Broodje zalm -->
-                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg" data-product="Broodje zalm">
-                    <div class="product-image-container">
-                        <img src="images/broodje_gerookte_zalm.png" alt="Broodje zalm" class="w-full h-48 md:h-64 object-cover">
-                        <div class="add-to-order-btn animate__animated">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4"></path></svg>
-                        </div>
-                        <div class="quantity-counter hidden animate__animated">
-                            <button class="decrease-btn">−</button><span class="quantity-display">0</span><button class="increase-btn">+</button>
-                        </div>
-                    </div>
-                    <div class="p-4 md:p-6">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Broodje zalm</h3>
-                            <span class="text-lg md:text-xl font-bold text-amber-700">€6,50</span>
-                        </div>
-                        <p class="text-base md:text-lg text-amber-700">Zalm, ijsbergsla, kruidenkaas.</p>
-                    </div>
-                </div>
-
-                <!-- Broodje filet americain -->
-                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg" data-product="Broodje filet americain">
-                    <div class="product-image-container">
-                        <img src="images/broodje_filter_americain.png" alt="Broodje filet americain" class="w-full h-48 md:h-64 object-cover">
-                        <div class="add-to-order-btn animate__animated">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4"></path></svg>
-                        </div>
-                        <div class="quantity-counter hidden animate__animated">
-                            <button class="decrease-btn">−</button><span class="quantity-display">0</span><button class="increase-btn">+</button>
-                        </div>
-                    </div>
-                    <div class="p-4 md:p-6">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Broodje filet americain</h3>
-                            <span class="text-lg md:text-xl font-bold text-amber-700">€6,50</span>
-                        </div>
-                        <p class="text-base md:text-lg text-amber-700">Filet americain en ei, met ijsbergsla.</p>
-                    </div>
-                </div>
-
-                <!-- Broodje warme omelet -->
-                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg" data-product="Broodje warme omelet">
-                    <div class="product-image-container">
-                        <img src="images/broodje_warme_omelet.png" alt="Broodje warme omelet" class="w-full h-48 md:h-64 object-cover">
-                        <div class="add-to-order-btn animate__animated">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4"></path></svg>
-                        </div>
-                        <div class="quantity-counter hidden animate__animated">
-                            <button class="decrease-btn">−</button><span class="quantity-display">0</span><button class="increase-btn">+</button>
-                        </div>
-                    </div>
-                    <div class="p-4 md:p-6">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Broodje warme omelet</h3>
-                            <span class="text-lg md:text-xl font-bold text-amber-700">€6,50</span>
-                        </div>
-                        <p class="text-base md:text-lg text-amber-700">Omelet, bacon, oude kaas, rucola.</p>
-                    </div>
-                </div>
-
-                <!-- Broodje kip-bacon -->
-                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg" data-product="Broodje kip-bacon">
-                    <div class="product-image-container">
-                        <img src="images/broodje_kip_bacon.png" alt="Broodje kip-bacon" class="w-full h-48 md:h-64 object-cover">
-                        <div class="add-to-order-btn animate__animated">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4"></path></svg>
-                        </div>
-                        <div class="quantity-counter hidden animate__animated">
-                            <button class="decrease-btn">−</button><span class="quantity-display">0</span><button class="increase-btn">+</button>
-                        </div>
-                    </div>
-                    <div class="p-4 md:p-6">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Broodje kip-bacon</h3>
-                            <span class="text-lg md:text-xl font-bold text-amber-700">€6,50</span>
-                        </div>
-                        <p class="text-base md:text-lg text-amber-700">Gerookte kipfilet, ei, bacon, ijsbergsla, tomaat, komkommer, mayonaise.</p>
-                    </div>
-                </div>
-
-                <!-- Broodje gezond -->
-                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg" data-product="Broodje gezond">
-                    <div class="product-image-container">
-                        <img src="images/broodje_gezond.png" alt="Broodje gezond" class="w-full h-48 md:h-64 object-cover">
-                        <div class="add-to-order-btn animate__animated">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4"></path></svg>
-                        </div>
-                        <div class="quantity-counter hidden animate__animated">
-                            <button class="decrease-btn">−</button><span class="quantity-display">0</span><button class="increase-btn">+</button>
-                        </div>
-                    </div>
-                    <div class="p-4 md:p-6">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Broodje gezond</h3>
-                            <span class="text-lg md:text-xl font-bold text-amber-700">€6,50</span>
-                        </div>
-                        <p class="text-base md:text-lg text-amber-700">Jong belegen kaas, tomaat, ijsbergsla, ham, gekookt ei, komkommer.</p>
-                    </div>
-                </div>
-
-                <!-- Broodje brie -->
-                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg" data-product="Broodje brie">
-                    <div class="product-image-container">
-                        <img src="images/broodje_brie.png" alt="Broodje brie" class="w-full h-48 md:h-64 object-cover">
-                        <div class="add-to-order-btn animate__animated">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4"></path></svg>
-                        </div>
-                        <div class="quantity-counter hidden animate__animated">
-                            <button class="decrease-btn">−</button><span class="quantity-display">0</span><button class="increase-btn">+</button>
-                        </div>
-                    </div>
-                    <div class="p-4 md:p-6">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Broodje brie</h3>
-                            <span class="text-lg md:text-xl font-bold text-amber-700">€6,50</span>
-                        </div>
-                        <p class="text-base md:text-lg text-amber-700">Brie, walnoten, honing, ijsbergsla.</p>
-                    </div>
-                </div>
-
-                <!-- Broodje warme gehaktbal -->
-                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg" data-product="Broodje warme gehaktbal">
-                    <div class="product-image-container">
-                        <img src="images/broodje_gehaktbal.png" alt="Broodje warme gehaktbal" class="w-full h-48 md:h-64 object-cover">
-                        <div class="add-to-order-btn animate__animated">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4"></path></svg>
-                        </div>
-                        <div class="quantity-counter hidden animate__animated">
-                            <button class="decrease-btn">−</button><span class="quantity-display">0</span><button class="increase-btn">+</button>
-                        </div>
-                    </div>
-                    <div class="p-4 md:p-6">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Broodje warme gehaktbal</h3>
-                            <span class="text-lg md:text-xl font-bold text-amber-700">€6,50</span>
-                        </div>
-                        <p class="text-base md:text-lg text-amber-700">Gehaktbal met mosterdsaus en ijsbergsla.</p>
-                    </div>
-                </div>
-
-                <!-- Broodje osseworst -->
-                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg" data-product="Broodje osseworst">
-                    <div class="product-image-container">
-                        <img src="images/broodje_osseworst.png" alt="Broodje osseworst" class="w-full h-48 md:h-64 object-cover">
-                        <div class="add-to-order-btn animate__animated">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4"></path></svg>
-                        </div>
-                        <div class="quantity-counter hidden animate__animated">
-                            <button class="decrease-btn">−</button><span class="quantity-display">0</span><button class="increase-btn">+</button>
-                        </div>
-                    </div>
-                    <div class="p-4 md:p-6">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Broodje osseworst</h3>
-                            <span class="text-lg md:text-xl font-bold text-amber-700">€4,50</span>
-                        </div>
-                        <p class="text-base md:text-lg text-amber-700">Sla, osseworst, truffelsaus, Amsterdamse ui.</p>
-                    </div>
-                </div>
             </div>
         </div>
+
 
         <!-- Tab Content: Seizoensproducten -->
         <div id="seizoen-content" class="tab-content">
@@ -1951,11 +2414,68 @@
     </div>
 </section>
 
+
+
 <!-- Footer -->
-<footer class="bg-amber-900 text-white py-12">
-    <div class="container mx-auto px-4">
-        <div class="border-t border-amber-700 pt-8 text-center">
-            <p class="text-lg">&copy; 2025 Broodje Benidorm. Alle rechten voorbehouden.</p>
+<footer class="bg-gradient-to-b from-amber-900 to-amber-950 text-white py-16 relative overflow-hidden">
+    <!-- Decorative Elements -->
+    <div class="absolute inset-0 opacity-10">
+        <div class="absolute -top-24 -left-24 w-96 h-96 bg-amber-700 rounded-full filter blur-3xl"></div>
+        <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-amber-600 rounded-full filter blur-3xl"></div>
+    </div>
+
+    <div class="container mx-auto px-4 relative z-10">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+            <div>
+                <h3 class="text-3xl font-bold mb-4">Broodje Benidorm</h3>
+                <p class="text-amber-200 leading-relaxed">
+                    Authentiek Nederlands brood en stamppotten in het hart van Benidorm.
+                </p>
+            </div>
+
+            <div>
+                <h3 class="text-xl font-bold mb-4">Contact</h3>
+                <div class="space-y-2">
+                    <p class="text-amber-200 flex items-center gap-2">
+                        <span>📞</span> +34 123 456 789
+                    </p>
+                    <p class="text-amber-200 flex items-center gap-2">
+                        <span>📧</span> info@broodjebenidorm.es
+                    </p>
+                    <p class="text-amber-200 flex items-center gap-2">
+                        <span>📍</span> Benidorm, Spanje
+                    </p>
+                </div>
+            </div>
+
+            <div>
+                <h3 class="text-xl font-bold mb-4">Openingstijden</h3>
+                <div class="space-y-1 text-amber-200">
+                    <p>Ma - Vr: 08:00 - 18:00</p>
+                    <p>Zaterdag: 08:00 - 14:00</p>
+                    <p>Zondag: Gesloten</p>
+                </div>
+            </div>
+
+            <div>
+                <h3 class="text-xl font-bold mb-4">Volg Ons</h3>
+                <div class="flex gap-4">
+                    <a href="#" class="w-12 h-12 bg-amber-800 rounded-full flex items-center justify-center hover:bg-amber-700 transition-all hover:scale-110">
+                        <span>f</span>
+                    </a>
+                    <a href="#" class="w-12 h-12 bg-amber-800 rounded-full flex items-center justify-center hover:bg-amber-700 transition-all hover:scale-110">
+                        <span>ig</span>
+                    </a>
+                    <a href="#" class="w-12 h-12 bg-amber-800 rounded-full flex items-center justify-center hover:bg-amber-700 transition-all hover:scale-110">
+                        <span>tw</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="border-t border-amber-800 pt-8 text-center">
+            <p class="text-amber-200">© 2025 Broodje Benidorm. Alle rechten voorbehouden.</p>
+            <p class="text-amber-300 text-sm mt-2">Made with ❤️ in Benidorm</p>
         </div>
     </div>
 </footer>
