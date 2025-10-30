@@ -19,7 +19,7 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Broodje Benidorm - Authentieke Nederlandse Bakkerij in Benidorm">
-    <meta property="og:description" content="Vers brood, gebak en stamppotten, een stukje Nederland in Spanje. Bezoek onze bakkerij in Benidorm!">
+    <meta property="og:description" content="Vers brood, gebak en versmaaltijden, een stukje Nederland in Spanje. Bezoek onze bakkerij in Benidorm!">
     <meta property="og:url" content="https://broodjebenidorm.nl/">
     <meta property="og:image" content="https://broodjebenidorm.nl/logo.png">
     <meta property="og:site_name" content="Broodje Benidorm">
@@ -328,13 +328,13 @@
             padding-left: 0.5rem;
         }
 
-        .stamppotten-banner {
+        .versmaaltijden-banner {
             background: linear-gradient(135deg, #8B6F47 0%, #6B4423 100%);
             position: relative;
             overflow: hidden;
         }
 
-        .stamppotten-banner::before {
+        .versmaaltijden-banner::before {
             content: '';
             position: absolute;
             top: 0;
@@ -347,12 +347,12 @@
             opacity: 0.15;
         }
 
-        .stamppotten-card {
+        .versmaaltijden-card {
             transition: all 0.3s ease;
             background: rgba(255, 255, 255, 0.95);
         }
 
-        .stamppotten-card:hover {
+        .versmaaltijden-card:hover {
             transform: translateY(-2px);
             background: rgba(255, 255, 255, 1);
         }
@@ -437,7 +437,7 @@
         <a href="#home" class="mobile-menu-link">Home</a>
         <a href="#over-ons" class="mobile-menu-link">Over Ons</a>
         <a href="#products" class="mobile-menu-link">Producten</a>
-        <a href="#stamppotten" class="mobile-menu-link">Stamppotten</a>
+        <a href="#versmaaltijden" class="mobile-menu-link">Versmaaltijden</a>
         <a href="#location" class="mobile-menu-link">Bezoek Ons</a>
     </nav>
     <div class="mt-8">
@@ -472,8 +472,8 @@
                     Ons</a>
                 <a href="#products"
                    class="text-amber-900 font-semibold hover:text-amber-700 transition-colors text-lg">Producten</a>
-                <a href="#stamppotten"
-                   class="text-amber-900 font-semibold hover:text-amber-700 transition-colors text-lg">Stamppotten</a>
+                <a href="#versmaaltijden"
+                   class="text-amber-900 font-semibold hover:text-amber-700 transition-colors text-lg">Versmaaltijden</a>
                 <a href="#location"
                    class="btn-primary px-6 py-3 rounded-lg text-lg font-semibold flex items-center gap-2 hover:bg-amber-800 transition-colors">
 
@@ -2608,73 +2608,107 @@
     </div>
 </section>
 
-<!-- Stamppotten Section -->
 <!-- Versmaaltijden Section -->
-<section id="stamppotten" class="stamppotten-banner py-16 md:py-24">
-    <div class="container mx-auto px-4 relative z-10" data-aos="fade-up" data-aos-duration="800">
-        <h2 class="text-4xl md:text-5xl font-bold text-white text-center mb-4">Versmaaltijden</h2>
-        <p class="text-xl text-white/90 text-center mb-12 max-w-2xl mx-auto">
+<!-- Versmaaltijden Section -->
+<!-- Versmaaltijden Section -->
+<section id="versmaaltijden" class="py-16 md:py-24 bg-white">
+    <div class="container mx-auto px-4" data-aos="fade-up" data-aos-duration="800">
+        <h2 class="text-4xl md:text-5xl font-bold text-amber-900 text-center mb-4">Versmaaltijden</h2>
+        <p class="text-xl text-amber-700 text-center mb-12 max-w-2xl mx-auto leading-relaxed">
             Dagelijks vers bereide maaltijden, niet online te bestellen.
             <br>Bel of kom langs in de winkel om te bestellen.
         </p>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+
             <!-- Peen en Ui -->
-            <div class="product-card stamppotten-card rounded-xl overflow-hidden shadow-lg bg-stone-50">
-                <img loading="lazy" src="images/peen_ui.jpg" alt="Peen en Ui" class="w-full h-48 object-cover">
-                <div class="p-6">
-                    <h3 class="text-2xl font-bold text-amber-900 mb-2">Peen en Ui</h3>
-                    <p class="text-amber-700 text-lg">Traditionele stamppot van wortel en ui met rookworst.</p>
+            <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg" data-product="Peen en Ui">
+                <div class="product-image-container">
+                    <img loading="lazy" src="images/peen_ui.png" alt="Peen en Ui" class="w-full h-48 md:h-64 object-cover">
+                </div>
+                <div class="p-4 md:p-6">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl md:text-2xl font-bold text-amber-900">Peen en Ui</h3>
+                        <span class="text-lg md:text-xl font-bold text-amber-700">€5,50</span>
+                    </div>
+                    <p class="text-base md:text-lg text-amber-700">Traditionele stamppot van wortel en ui met rookworst.</p>
                 </div>
             </div>
 
             <!-- Zuurkool -->
-            <div class="product-card stamppotten-card rounded-xl overflow-hidden shadow-lg bg-stone-50">
-                <img loading="lazy" src="images/zuurkool.jpg" alt="Zuurkool" class="w-full h-48 object-cover">
-                <div class="p-6">
-                    <h3 class="text-2xl font-bold text-amber-900 mb-2">Zuurkool</h3>
-                    <p class="text-amber-700 text-lg">Met rookworst en spekjes, fris en hartig.</p>
+            <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg" data-product="Zuurkool">
+                <div class="product-image-container">
+                    <img loading="lazy" src="images/zuurkool.png" alt="Zuurkool" class="w-full h-48 md:h-64 object-cover">
+                </div>
+                <div class="p-4 md:p-6">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl md:text-2xl font-bold text-amber-900">Zuurkool</h3>
+                        <span class="text-lg md:text-xl font-bold text-amber-700">€5,50</span>
+                    </div>
+                    <p class="text-base md:text-lg text-amber-700">Met rookworst en spekjes, fris en hartig.</p>
                 </div>
             </div>
 
             <!-- Andijvie -->
-            <div class="product-card stamppotten-card rounded-xl overflow-hidden shadow-lg bg-stone-50">
-                <img loading="lazy" src="images/andijvie.jpg" alt="Andijvie" class="w-full h-48 object-cover">
-                <div class="p-6">
-                    <h3 class="text-2xl font-bold text-amber-900 mb-2">Andijvie</h3>
-                    <p class="text-amber-700 text-lg">Met spekjes en jus – een echte klassieker.</p>
+            <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg" data-product="Andijvie">
+                <div class="product-image-container">
+                    <img loading="lazy" src="images/stamppot_andijvie.png" alt="Andijvie" class="w-full h-48 md:h-64 object-cover">
+                </div>
+                <div class="p-4 md:p-6">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl md:text-2xl font-bold text-amber-900">Andijvie</h3>
+                        <span class="text-lg md:text-xl font-bold text-amber-700">€5,50</span>
+                    </div>
+                    <p class="text-base md:text-lg text-amber-700">Met spekjes en jus, een echte klassieker.</p>
                 </div>
             </div>
 
             <!-- Macaroni -->
-            <div class="product-card stamppotten-card rounded-xl overflow-hidden shadow-lg bg-stone-50">
-                <img loading="lazy" src="images/macaroni.jpg" alt="Macaroni" class="w-full h-48 object-cover">
-                <div class="p-6">
-                    <h3 class="text-2xl font-bold text-amber-900 mb-2">Macaroni</h3>
-                    <p class="text-amber-700 text-lg">Huisgemaakte macaroni met gehakt en groente.</p>
+            <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg" data-product="Macaroni">
+                <div class="product-image-container">
+                    <img loading="lazy" src="images/macaroni.png" alt="Macaroni" class="w-full h-48 md:h-64 object-cover">
+                </div>
+                <div class="p-4 md:p-6">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl md:text-2xl font-bold text-amber-900">Macaroni</h3>
+                        <span class="text-lg md:text-xl font-bold text-amber-700">€5,50</span>
+                    </div>
+                    <p class="text-base md:text-lg text-amber-700">Huisgemaakte macaroni met gehakt en groenten.</p>
                 </div>
             </div>
 
             <!-- Bloemkool Aardappel -->
-            <div class="product-card stamppotten-card rounded-xl overflow-hidden shadow-lg bg-stone-50">
-                <img loading="lazy" src="images/bloemkool_aardappel.jpg" alt="Bloemkool Aardappel" class="w-full h-48 object-cover">
-                <div class="p-6">
-                    <h3 class="text-2xl font-bold text-amber-900 mb-2">Bloemkool Aardappel</h3>
-                    <p class="text-amber-700 text-lg">Romige aardappelpuree met bloemkool en gehaktbal.</p>
+            <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg" data-product="Bloemkool Aardappel">
+                <div class="product-image-container">
+                    <img loading="lazy" src="images/bloemkool.png" alt="Bloemkool Aardappel" class="w-full h-48 md:h-64 object-cover">
+                </div>
+                <div class="p-4 md:p-6">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl md:text-2xl font-bold text-amber-900">Bloemkool Aardappel</h3>
+                        <span class="text-lg md:text-xl font-bold text-amber-700">€5,50</span>
+                    </div>
+                    <p class="text-base md:text-lg text-amber-700">Romige aardappelpuree met bloemkool en kipkrokant.</p>
                 </div>
             </div>
 
             <!-- Surinaamse Bami -->
-            <div class="product-card stamppotten-card rounded-xl overflow-hidden shadow-lg bg-stone-50">
-                <img loading="lazy" src="images/surinaamse_bami.jpg" alt="Surinaamse Bami" class="w-full h-48 object-cover">
-                <div class="p-6">
-                    <h3 class="text-2xl font-bold text-amber-900 mb-2">Surinaamse Bami</h3>
-                    <p class="text-amber-700 text-lg">Met kip en groenten – kruidig en vol van smaak.</p>
+            <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg" data-product="Surinaamse Bami">
+                <div class="product-image-container">
+                    <img loading="lazy" src="images/surinaamse_bami.png" alt="Surinaamse Bami" class="w-full h-48 md:h-64 object-cover">
+                </div>
+                <div class="p-4 md:p-6">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl md:text-2xl font-bold text-amber-900">Surinaamse Bami</h3>
+                        <span class="text-lg md:text-xl font-bold text-amber-700">€5,50</span>
+                    </div>
+                    <p class="text-base md:text-lg text-amber-700">Met kip en groenten, kruidig en vol van smaak.</p>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+
 
 
 <!-- Order Form Section -->
