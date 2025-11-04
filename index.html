@@ -416,6 +416,63 @@
                 margin-bottom: 24px;
             }
         }
+
+        /* Floating Cart Summary */
+        .cart-summary {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #6B4423 0%, #8B6F47 100%);
+            color: white;
+            padding: 16px 24px;
+            border-radius: 50px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            animation: slideInUp 0.5s ease;
+        }
+
+        .cart-summary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+        }
+
+        .cart-summary.hidden {
+            display: none;
+        }
+
+        .cart-summary .cart-icon {
+            width: 24px;
+            height: 24px;
+        }
+
+        .cart-summary .cart-count {
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        @keyframes slideInUp {
+            from {
+                transform: translateY(100px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .cart-summary {
+                bottom: 10px;
+                right: 10px;
+                padding: 12px 16px;
+            }
+        }
     </style>
 </head>
 <body class="bg-stone-50">
@@ -3100,6 +3157,12 @@
         const productName = card.dataset.product;
         const addBtn = card.querySelector('.add-to-order-btn');
         const counter = card.querySelector('.quantity-counter');
+
+        // Skip if this product card doesn't have cart functionality (e.g. versmaaltijden)
+        if (!addBtn || !counter) {
+            return;
+        }
+
         const display = counter.querySelector('.quantity-display');
         const increaseBtn = counter.querySelector('.increase-btn');
         const decreaseBtn = counter.querySelector('.decrease-btn');
@@ -3252,6 +3315,11 @@
                 const addBtn = card.querySelector('.add-to-order-btn');
                 const counter = card.querySelector('.quantity-counter');
 
+
+                // Skip if this product card doesn't have cart functionality
+                if (!addBtn || !counter) {
+                    return;
+                }
                 if (!counter.classList.contains('hidden')) {
                     counter.classList.add('hidden');
                     addBtn.classList.remove('hidden');
