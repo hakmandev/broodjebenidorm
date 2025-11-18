@@ -2796,7 +2796,7 @@
         modalHardPrice.textContent = `€${priceHard}`;
         modalZachtPrice.textContent = `€${priceZacht}`;
 
-        // Reset quantities
+        // Reset quantities in the modal
         modalHardQty = 0;
         modalZachtQty = 0;
         modalHardQuantity.textContent = '0';
@@ -2930,6 +2930,24 @@
     const quantities = {};
     let totalItems = 0;
 
+    // LocalStorage key for cart
+    const CART_STORAGE_KEY = 'bb_cart_quantities_v1';
+
+    function saveCartToStorage() {
+        try {
+            if (typeof localStorage === 'undefined') return;
+
+            const hasItems = Object.values(quantities).some(qty => qty > 0);
+            if (hasItems) {
+                localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(quantities));
+            } else {
+                localStorage.removeItem(CART_STORAGE_KEY);
+            }
+        } catch (e) {
+            console.error('Kon winkelwagen niet opslaan in localStorage:', e);
+        }
+    }
+
     // Function to update cart summary
     function updateCartSummary() {
         const cartSummary = document.getElementById('cart-summary');
@@ -2946,6 +2964,9 @@
 
         // Update the cart items list
         updateCartItemsList();
+
+        // Persist cart
+        saveCartToStorage();
     }
 
     // Function to update the shopping cart list
@@ -2977,8 +2998,10 @@
         }
     }
 
+    const productCards = document.querySelectorAll('.product-card');
+
     // Add to cart functionality for each product
-    document.querySelectorAll('.product-card').forEach(card => {
+    productCards.forEach(card => {
         const productName = card.dataset.product;
         const hasModal = card.dataset.hasModal === 'true';
         const addBtn = card.querySelector('.add-to-order-btn');
@@ -3102,6 +3125,60 @@
         }
     });
 
+    // Restore cart from localStorage on page load
+    function restoreCartFromStorage() {
+        try {
+            if (typeof localStorage === 'undefined') return;
+
+            const raw = localStorage.getItem(CART_STORAGE_KEY);
+            if (!raw) return;
+
+            const saved = JSON.parse(raw);
+            if (!saved || typeof saved !== 'object') return;
+
+            // Restore quantities
+            Object.keys(saved).forEach(key => {
+                const value = saved[key];
+                if (typeof value === 'number' && value > 0) {
+                    quantities[key] = value;
+                }
+            });
+
+            // Rebuild UI for each product card
+            productCards.forEach(card => {
+                const productName = card.dataset.product;
+                const hasModal = card.dataset.hasModal === 'true';
+                const addBtn = card.querySelector('.add-to-order-btn');
+                const counter = card.querySelector('.quantity-counter');
+
+                if (!addBtn || !counter) return;
+
+                const display = counter.querySelector('.quantity-display');
+                let totalQty = 0;
+
+                if (hasModal) {
+                    totalQty =
+                        (quantities[`${productName} (hard)`] || 0) +
+                        (quantities[`${productName} (zacht)`] || 0);
+                } else {
+                    totalQty = quantities[productName] || 0;
+                }
+
+                if (totalQty > 0) {
+                    display.textContent = totalQty;
+                    addBtn.classList.add('hidden');
+                    counter.classList.remove('hidden');
+                }
+            });
+
+            updateCartSummary();
+        } catch (e) {
+            console.error('Kon winkelwagen niet laden uit localStorage:', e);
+        }
+    }
+
+    restoreCartFromStorage();
+
     // Scroll to order form when clicking cart summary
     document.getElementById('cart-summary').addEventListener('click', () => {
         document.getElementById('bestellen').scrollIntoView({behavior: 'smooth'});
@@ -3188,7 +3265,6 @@
                 const addBtn = card.querySelector('.add-to-order-btn');
                 const counter = card.querySelector('.quantity-counter');
 
-
                 // Skip if this product card doesn't have cart functionality
                 if (!addBtn || !counter) {
                     return;
@@ -3226,6 +3302,7 @@
         });
     });
 </script>
+
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
