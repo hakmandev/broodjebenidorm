@@ -2366,7 +2366,13 @@
                     </div>
                 </div>
 
-                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg" data-product="Luxe Oliebol">
+                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg"
+                     data-product="Luxe Oliebol"
+                     data-price-banana="3.00"
+                     data-price-strawberry="3.00"
+                     data-price-rum="3.00"
+                     data-has-modal="true"
+                     data-modal-type="luxe">
                     <div class="product-image-container">
                         <img loading="lazy" src="images/luxe_oliebol.png" alt="Luxe Oliebol" class="w-full h-48 md:h-64 object-cover">
                         <div class="add-to-order-btn animate__animated">
@@ -2386,32 +2392,8 @@
                             <h3 class="text-xl md:text-2xl font-bold text-amber-900">Luxe Oliebollen</h3>
                             <span class="text-lg md:text-xl font-bold text-amber-700">€3,00</span>
                         </div>
-                        <p class="text-base md:text-lg text-amber-700">Vers gebakken oliebollen met of zonder krenten.
-                            Afmaken met poedersuiker. 11 oliebollen voor €10.</p>
-                    </div>
-                </div>
-
-                <div class="product-card bg-stone-50 rounded-xl overflow-hidden shadow-lg" data-product="Berlinerbol">
-                    <div class="product-image-container">
-                        <img loading="lazy" src="images/berlinerbol.png" alt="Berlinerbollen" class="w-full h-48 md:h-64 object-cover">
-                        <div class="add-to-order-btn animate__animated">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
-                                      d="M12 4v16m8-8H4"></path>
-                            </svg>
-                        </div>
-                        <div class="quantity-counter hidden animate__animated">
-                            <button class="decrease-btn">−</button>
-                            <span class="quantity-display">0</span>
-                            <button class="increase-btn">+</button>
-                        </div>
-                    </div>
-                    <div class="p-4 md:p-6">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="text-xl md:text-2xl font-bold text-amber-900">Oliebollen</h3>
-                            <span class="text-lg md:text-xl font-bold text-amber-700">€2,50</span>
-                        </div>
-                        <p class="text-base md:text-lg text-amber-700">Vers gebakken gistbollen met of zonder krenten. Afmaken met poedersuiker.</p>
+                        <p class="text-base md:text-lg text-amber-700">Vers gebakken oliebollen met banaan, aardbei of rum.
+                            Afmaken met poedersuiker.</p>
                     </div>
                 </div>
 
@@ -2873,6 +2855,57 @@
     </div>
 </div>
 
+<!-- Modal for Luxe Oliebol Selection -->
+<div id="luxe-modal" class="modal-overlay hidden animate__animated animate__fadeIn">
+    <div class="modal-content animate__animated animate__zoomIn">
+        <div class="modal-header">
+            <h3 class="text-2xl font-bold" id="luxe-modal-product-name">Luxe Oliebol Selecteren</h3>
+        </div>
+        <div class="modal-body">
+            <p class="text-amber-700 mb-6 text-center">Kies hoeveel van elk type luxe oliebol u wilt bestellen:</p>
+
+            <div class="quantity-selector">
+                <div>
+                    <div class="text-lg font-bold text-amber-900">Luxebol met Banaan</div>
+                    <div class="text-sm text-amber-600" id="luxe-modal-banana-price">€3,00</div>
+                </div>
+                <div class="quantity-controls">
+                    <button type="button" class="quantity-btn" id="luxe-modal-banana-decrease">−</button>
+                    <span class="quantity-value" id="luxe-modal-banana-quantity">0</span>
+                    <button type="button" class="quantity-btn" id="luxe-modal-banana-increase">+</button>
+                </div>
+            </div>
+
+            <div class="quantity-selector">
+                <div>
+                    <div class="text-lg font-bold text-amber-900">Luxebol met Aardbei</div>
+                    <div class="text-sm text-amber-600" id="luxe-modal-strawberry-price">€3,00</div>
+                </div>
+                <div class="quantity-controls">
+                    <button type="button" class="quantity-btn" id="luxe-modal-strawberry-decrease">−</button>
+                    <span class="quantity-value" id="luxe-modal-strawberry-quantity">0</span>
+                    <button type="button" class="quantity-btn" id="luxe-modal-strawberry-increase">+</button>
+                </div>
+            </div>
+
+            <div class="quantity-selector">
+                <div>
+                    <div class="text-lg font-bold text-amber-900">Luxebol met Rum</div>
+                    <div class="text-sm text-amber-600" id="luxe-modal-rum-price">€3,00</div>
+                </div>
+                <div class="quantity-controls">
+                    <button type="button" class="quantity-btn" id="luxe-modal-rum-decrease">−</button>
+                    <span class="quantity-value" id="luxe-modal-rum-quantity">0</span>
+                    <button type="button" class="quantity-btn" id="luxe-modal-rum-increase">+</button>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="modal-btn modal-btn-cancel" id="luxe-modal-cancel">Annuleren</button>
+            <button type="button" class="modal-btn modal-btn-confirm" id="luxe-modal-confirm">Toevoegen</button>
+        </div>
+    </div>
+</div>
 <script>
     // Modal functionality
     const modal = document.getElementById('broodjes-modal');
@@ -2984,6 +3017,144 @@
 
         updateCartSummary();
         closeModal();
+    });
+
+    // Luxe Oliebol Modal functionality
+    const luxeModal = document.getElementById('luxe-modal');
+    const luxeModalProductName = document.getElementById('luxe-modal-product-name');
+    const luxeModalBananaPrice = document.getElementById('luxe-modal-banana-price');
+    const luxeModalStrawberryPrice = document.getElementById('luxe-modal-strawberry-price');
+    const luxeModalRumPrice = document.getElementById('luxe-modal-rum-price');
+    const luxeModalBananaQuantity = document.getElementById('luxe-modal-banana-quantity');
+    const luxeModalStrawberryQuantity = document.getElementById('luxe-modal-strawberry-quantity');
+    const luxeModalRumQuantity = document.getElementById('luxe-modal-rum-quantity');
+    const luxeModalBananaDecrease = document.getElementById('luxe-modal-banana-decrease');
+    const luxeModalBananaIncrease = document.getElementById('luxe-modal-banana-increase');
+    const luxeModalStrawberryDecrease = document.getElementById('luxe-modal-strawberry-decrease');
+    const luxeModalStrawberryIncrease = document.getElementById('luxe-modal-strawberry-increase');
+    const luxeModalRumDecrease = document.getElementById('luxe-modal-rum-decrease');
+    const luxeModalRumIncrease = document.getElementById('luxe-modal-rum-increase');
+    const luxeModalCancel = document.getElementById('luxe-modal-cancel');
+    const luxeModalConfirm = document.getElementById('luxe-modal-confirm');
+
+    let currentLuxeModalProduct = null;
+    let luxeModalBananaQty = 0;
+    let luxeModalStrawberryQty = 0;
+    let luxeModalRumQty = 0;
+
+    function openLuxeModal(productCard) {
+        const productName = productCard.dataset.product;
+        const priceBanana = productCard.dataset.priceBanana;
+        const priceStrawberry = productCard.dataset.priceStrawberry;
+        const priceRum = productCard.dataset.priceRum;
+
+        currentLuxeModalProduct = productCard;
+        luxeModalProductName.textContent = productName;
+        luxeModalBananaPrice.textContent = `€${priceBanana}`;
+        luxeModalStrawberryPrice.textContent = `€${priceStrawberry}`;
+        luxeModalRumPrice.textContent = `€${priceRum}`;
+
+        // Reset quantities in the modal
+        luxeModalBananaQty = 0;
+        luxeModalStrawberryQty = 0;
+        luxeModalRumQty = 0;
+        luxeModalBananaQuantity.textContent = '0';
+        luxeModalStrawberryQuantity.textContent = '0';
+        luxeModalRumQuantity.textContent = '0';
+
+        luxeModal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeLuxeModal() {
+        luxeModal.classList.add('hidden');
+        document.body.style.overflow = '';
+        currentLuxeModalProduct = null;
+    }
+
+    luxeModalBananaIncrease.addEventListener('click', () => {
+        luxeModalBananaQty++;
+        luxeModalBananaQuantity.textContent = luxeModalBananaQty;
+    });
+
+    luxeModalBananaDecrease.addEventListener('click', () => {
+        if (luxeModalBananaQty > 0) {
+            luxeModalBananaQty--;
+            luxeModalBananaQuantity.textContent = luxeModalBananaQty;
+        }
+    });
+
+    luxeModalStrawberryIncrease.addEventListener('click', () => {
+        luxeModalStrawberryQty++;
+        luxeModalStrawberryQuantity.textContent = luxeModalStrawberryQty;
+    });
+
+    luxeModalStrawberryDecrease.addEventListener('click', () => {
+        if (luxeModalStrawberryQty > 0) {
+            luxeModalStrawberryQty--;
+            luxeModalStrawberryQuantity.textContent = luxeModalStrawberryQty;
+        }
+    });
+
+    luxeModalRumIncrease.addEventListener('click', () => {
+        luxeModalRumQty++;
+        luxeModalRumQuantity.textContent = luxeModalRumQty;
+    });
+
+    luxeModalRumDecrease.addEventListener('click', () => {
+        if (luxeModalRumQty > 0) {
+            luxeModalRumQty--;
+            luxeModalRumQuantity.textContent = luxeModalRumQty;
+        }
+    });
+
+    luxeModalCancel.addEventListener('click', closeLuxeModal);
+
+    luxeModal.addEventListener('click', (e) => {
+        if (e.target === luxeModal) {
+            closeLuxeModal();
+        }
+    });
+
+    luxeModalConfirm.addEventListener('click', () => {
+        if (luxeModalBananaQty === 0 && luxeModalStrawberryQty === 0 && luxeModalRumQty === 0) {
+            closeLuxeModal();
+            return;
+        }
+
+        const productName = currentLuxeModalProduct.dataset.product;
+
+        // Add quantities to our global quantities object
+        if (luxeModalBananaQty > 0) {
+            quantities[`${productName} (banaan)`] = (quantities[`${productName} (banaan)`] || 0) + luxeModalBananaQty;
+        }
+        if (luxeModalStrawberryQty > 0) {
+            quantities[`${productName} (aardbei)`] = (quantities[`${productName} (aardbei)`] || 0) + luxeModalStrawberryQty;
+        }
+        if (luxeModalRumQty > 0) {
+            quantities[`${productName} (rum)`] = (quantities[`${productName} (rum)`] || 0) + luxeModalRumQty;
+        }
+
+        // Show the counter on the product card
+        const counter = currentLuxeModalProduct.querySelector('.quantity-counter');
+        const display = counter.querySelector('.quantity-display');
+        const addBtn = currentLuxeModalProduct.querySelector('.add-to-order-btn');
+
+        const totalQty = (quantities[`${productName} (banaan)`] || 0) +
+            (quantities[`${productName} (aardbei)`] || 0) +
+            (quantities[`${productName} (rum)`] || 0);
+        display.textContent = totalQty;
+
+        if (addBtn && !addBtn.classList.contains('hidden')) {
+            addBtn.classList.add('hidden');
+        }
+        if (counter.classList.contains('hidden')) {
+            counter.classList.remove('hidden');
+            counter.classList.add('animate__zoomIn');
+        }
+
+        updateCartSummary();
+        closeLuxeModal();
     });
 
 
@@ -3119,57 +3290,119 @@
         }
 
         if (hasModal) {
-            // For belegde broodjes - open modal
-            quantities[`${productName} (hard)`] = 0;
-            quantities[`${productName} (zacht)`] = 0;
+            const modalType = card.dataset.modalType;
 
-            addBtn.addEventListener('click', () => {
-                openModal(card);
-            });
+            if (modalType === 'luxe') {
+                // For luxe oliebol - initialize three variants
+                quantities[`${productName} (banaan)`] = 0;
+                quantities[`${productName} (aardbei)`] = 0;
+                quantities[`${productName} (rum)`] = 0;
 
-            // Handle counter buttons for products with modal
-            const display = counter.querySelector('.quantity-display');
-            const increaseBtn = counter.querySelector('.increase-btn');
-            const decreaseBtn = counter.querySelector('.decrease-btn');
+                addBtn.addEventListener('click', () => {
+                    openLuxeModal(card);
+                });
 
-            increaseBtn.addEventListener('click', () => {
-                openModal(card);
-            });
+                // Handle counter buttons for luxe products
+                const display = counter.querySelector('.quantity-display');
+                const increaseBtn = counter.querySelector('.increase-btn');
+                const decreaseBtn = counter.querySelector('.decrease-btn');
 
-            decreaseBtn.addEventListener('click', () => {
-                const hardQty = quantities[`${productName} (hard)`] || 0;
-                const zachtQty = quantities[`${productName} (zacht)`] || 0;
-                const totalQty = hardQty + zachtQty;
+                increaseBtn.addEventListener('click', () => {
+                    openLuxeModal(card);
+                });
 
-                if (totalQty > 0) {
-                    // Decrease from hard first, then zacht
-                    if (hardQty > 0) {
-                        quantities[`${productName} (hard)`]--;
-                    } else if (zachtQty > 0) {
-                        quantities[`${productName} (zacht)`]--;
+                decreaseBtn.addEventListener('click', () => {
+                    const bananaQty = quantities[`${productName} (banaan)`] || 0;
+                    const strawberryQty = quantities[`${productName} (aardbei)`] || 0;
+                    const rumQty = quantities[`${productName} (rum)`] || 0;
+                    const totalQty = bananaQty + strawberryQty + rumQty;
+
+                    if (totalQty > 0) {
+                        // Decrease from banana first, then strawberry, then rum
+                        if (bananaQty > 0) {
+                            quantities[`${productName} (banaan)`]--;
+                        } else if (strawberryQty > 0) {
+                            quantities[`${productName} (aardbei)`]--;
+                        } else if (rumQty > 0) {
+                            quantities[`${productName} (rum)`]--;
+                        }
+
+                        const newTotal = (quantities[`${productName} (banaan)`] || 0) +
+                            (quantities[`${productName} (aardbei)`] || 0) +
+                            (quantities[`${productName} (rum)`] || 0);
+                        display.textContent = newTotal;
+
+                        if (newTotal === 0) {
+                            counter.classList.add('animate__zoomOut');
+                            setTimeout(() => {
+                                counter.classList.add('hidden');
+                                counter.classList.remove('animate__zoomOut');
+                                addBtn.classList.remove('hidden');
+                                addBtn.classList.add('animate__zoomIn');
+                            }, 300);
+                        } else {
+                            display.classList.add('animate__animated', 'animate__bounceIn');
+                            setTimeout(() => {
+                                display.classList.remove('animate__animated', 'animate__bounceIn');
+                            }, 500);
+                        }
+
+                        updateCartSummary();
                     }
+                });
+            } else {
+                // For belegde broodjes - open modal
+                quantities[`${productName} (hard)`] = 0;
+                quantities[`${productName} (zacht)`] = 0;
 
-                    const newTotal = (quantities[`${productName} (hard)`] || 0) + (quantities[`${productName} (zacht)`] || 0);
-                    display.textContent = newTotal;
+                addBtn.addEventListener('click', () => {
+                    openModal(card);
+                });
 
-                    if (newTotal === 0) {
-                        counter.classList.add('animate__zoomOut');
-                        setTimeout(() => {
-                            counter.classList.add('hidden');
-                            counter.classList.remove('animate__zoomOut');
-                            addBtn.classList.remove('hidden');
-                            addBtn.classList.add('animate__zoomIn');
-                        }, 300);
-                    } else {
-                        display.classList.add('animate__animated', 'animate__bounceIn');
-                        setTimeout(() => {
-                            display.classList.remove('animate__animated', 'animate__bounceIn');
-                        }, 500);
+                // Handle counter buttons for products with modal
+                const display = counter.querySelector('.quantity-display');
+                const increaseBtn = counter.querySelector('.increase-btn');
+                const decreaseBtn = counter.querySelector('.decrease-btn');
+
+                increaseBtn.addEventListener('click', () => {
+                    openModal(card);
+                });
+
+                decreaseBtn.addEventListener('click', () => {
+                    const hardQty = quantities[`${productName} (hard)`] || 0;
+                    const zachtQty = quantities[`${productName} (zacht)`] || 0;
+                    const totalQty = hardQty + zachtQty;
+
+                    if (totalQty > 0) {
+                        // Decrease from hard first, then zacht
+                        if (hardQty > 0) {
+                            quantities[`${productName} (hard)`]--;
+                        } else if (zachtQty > 0) {
+                            quantities[`${productName} (zacht)`]--;
+                        }
+
+                        const newTotal = (quantities[`${productName} (hard)`] || 0) + (quantities[`${productName} (zacht)`] || 0);
+                        display.textContent = newTotal;
+
+                        if (newTotal === 0) {
+                            counter.classList.add('animate__zoomOut');
+                            setTimeout(() => {
+                                counter.classList.add('hidden');
+                                counter.classList.remove('animate__zoomOut');
+                                addBtn.classList.remove('hidden');
+                                addBtn.classList.add('animate__zoomIn');
+                            }, 300);
+                        } else {
+                            display.classList.add('animate__animated', 'animate__bounceIn');
+                            setTimeout(() => {
+                                display.classList.remove('animate__animated', 'animate__bounceIn');
+                            }, 500);
+                        }
+
+                        updateCartSummary();
                     }
-
-                    updateCartSummary();
-                }
-            });
+                });
+            }
         } else {
             // Regular product behavior
             const display = counter.querySelector('.quantity-display');
@@ -3263,9 +3496,17 @@
                 let totalQty = 0;
 
                 if (hasModal) {
-                    totalQty =
-                        (quantities[`${productName} (hard)`] || 0) +
-                        (quantities[`${productName} (zacht)`] || 0);
+                    const modalType = card.dataset.modalType;
+                    if (modalType === 'luxe') {
+                        totalQty =
+                            (quantities[`${productName} (banaan)`] || 0) +
+                            (quantities[`${productName} (aardbei)`] || 0) +
+                            (quantities[`${productName} (rum)`] || 0);
+                    } else {
+                        totalQty =
+                            (quantities[`${productName} (hard)`] || 0) +
+                            (quantities[`${productName} (zacht)`] || 0);
+                    }
                 } else {
                     totalQty = quantities[productName] || 0;
                 }
